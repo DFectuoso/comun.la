@@ -273,11 +273,13 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 							</span>
 							</a>
 							<ul class="sub-menu">
-								<li>
-									<a href="/startup/{{startup.id}}">
-										Emprendimiento
-									</a>
-								</li>
+								{% for s in topicSections %}
+									<li>
+										<a href="/{{s.slug}}">
+											{{s.name}}
+										</a>
+									</li>
+								{% endfor %}
 							</ul>
 						</li>
 
@@ -293,22 +295,13 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 							</span>
 							</a>
 							<ul class="sub-menu">
-								<li>
-									<a href="/startup/{{startup.id}}">
-										Ciudad de Mexico
-									</a>
-								</li>
-								<li>
-									<a href="/startup/{{startup.id}}">
-										Merida
-									</a>
-								</li>
-								<li>
-									<a href="/startup/{{startup.id}}">
-										TJ
-									</a>
-								</li>
-
+								{% for s in citySections %}
+									<li>
+										<a href="/{{s.slug}}">
+											{{s.name}}
+										</a>
+									</li>
+								{% endfor %}
 							</ul>
 						</li>
 
@@ -331,12 +324,7 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 		<!-- BEGIN FOOTER -->
 		<div class="footer">
 			<div class="footer-inner">
-				 2014 &copy; 500 Mexico City.
-			</div>
-			<div class="footer-tools">
-				<span class="go-top">
-					<i class="fa fa-angle-up"></i>
-				</span>
+				 2014 &copy; Comun.la, hecho con Amor, por <a href="http://twitter.com/rocio_aguiar">Rocío</a> y <a href="http://twitter.com/dfect">Santiago</a>, entre otros, <a href="https://github.com/DFectuoso/comun.la">codigo libre<a>.
 			</div>
 		</div>
 		<!-- END FOOTER -->

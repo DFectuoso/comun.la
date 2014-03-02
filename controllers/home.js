@@ -3,6 +3,7 @@ var controller = require('stackers'),
 	_ = require('underscore');
 
 var User = require('../models/user');
+var Section = require('../models/section');
 
 var homeController = controller({
 	path : ''
@@ -30,10 +31,29 @@ homeController.beforeEach(function(req, res, next){
 		next();
 });
 
+homeController.beforeEach(function(req, res, next){
+	var query = Section.find({},function(err, sections){
+		if(err) return res.send(500, err);
+
+		req.sections = sections;
+		req.citySections = [];
+		req.topicSections = [];
+
+		for(var i = 0; i < sections.length; i++){
+			if(sections[i].city)
+				req.citySections.push(sections[i]);
+			else
+				req.topicSections.push(sections[i]);
+		}
+
+		next();
+	});
+});
+
 // This is the main log in, no reason to have anything else
 homeController.get('', function (req, res) {
 	/// TODO CHANGE THIS TO MAKE IT THE DEFAULT SECCION CONTENT
-	res.render('home/home',{ messageLogin: req.flash('loginMessage') });
+	res.render('home/home', req);
 });
 
 // This is the main dashboard

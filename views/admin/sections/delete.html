@@ -1,0 +1,41 @@
+{% extends '../../layouts/layout.html' %}
+
+
+{% block content %}
+  <div class="page-content">
+    <!-- BEGIN PAGE HEADER-->
+    <div class="row">
+      <div class="col-md-12">
+        <!-- BEGIN PAGE TITLE & BREADCRUMB-->
+        <h3 class="page-title">Delete Section</small></h3>
+        <!-- END PAGE TITLE & BREADCRUMB-->
+      </div>
+    </div>
+    <!-- END PAGE HEADER-->
+    <!-- BEGIN PAGE CONTENT-->
+    <!-- BEGIN SAMPLE FORM PORTLET-->
+    <div class="portlet box grey">
+      <div class="portlet-title">
+        <div class="caption">
+          <i class="fa fa-reorder"></i> Are you sure?!?
+        </div>
+      </div>
+      <div class="portlet-body form">
+        <form role="form" method="post">
+          <div class="form-body">
+
+          <div class="form-group">
+            <label>Are you sure you want to delete <span style="color:red"><strong>{{section.name}}</strong></span> for sure?!</label>
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="btn red"><i class="fa fa-warning"></i> Delete <i class="fa fa-warning"></i></button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!-- END SAMPLE FORM PORTLET-->
+  </div>
+
+
+
+{% endblock %}

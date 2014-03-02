@@ -34,6 +34,9 @@
           <th>
             Created
           </th>
+          <th>
+            Actions
+          </th>
         </tr>
         </thead>
         <tbody>
@@ -53,6 +56,9 @@
               </td>
               <td class="center">
                 {{s.createdDate|date('F jS, Y') }}
+              </td>
+              <td>
+								<a href="/admin/sections/{{s.id}}/delete" class="btn default btn-xs red"><i class="fa fa-trash-o"></i> Delete</a>
               </td>
             </tr>
           {% endfor %}

@@ -46,6 +46,18 @@ userAdminController.post('/new', function (req, res) {
 	});
 });
 
+userAdminController.get('/:sectionId/delete', function (req, res) {
+  res.render('admin/sections/delete', req);
+});
+
+userAdminController.post('/:sectionId/delete', function (req, res) {
+  req.section.remove(function (err) {
+    if(err)
+      return res.send(500, err);
+    res.redirect('/admin/sections');
+  })
+});
+
 userAdminController.get('/:sectionId', function (req, res) {
   res.render('admin/sections/info', req);
 });
