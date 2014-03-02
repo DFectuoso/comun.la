@@ -11,6 +11,7 @@ var homeController = controller({
 // attach all other controllers
 homeController.attach(require('./user'));
 homeController.attach(require('./admin/users.js'));
+homeController.attach(require('./admin/sections.js'));
 
 // Fetch user middle ware
 homeController.beforeEach(function(req, res, next){

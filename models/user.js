@@ -57,6 +57,9 @@ User.setPermisions('admin', {
 	users : {
 		'edit' : true,
 	},
+	sections : {
+		'edit' : true,
+	},
 	startups : {
 		'edit' : true
 	}

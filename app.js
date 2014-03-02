@@ -62,6 +62,7 @@ require('./models/user');
 
 //// PARAM PARAMS PARAMS ////
 var User    = require('./models/user');
+var Section    = require('./models/section');
 
 server.param('userId', function(req,res, next, id){
   User.findOne({_id:id}, function (e, user){
@@ -71,6 +72,16 @@ server.param('userId', function(req,res, next, id){
     next();
   });
 });
+
+server.param('sectionId', function(req,res, next, id){
+  Section.findOne({_id:id}, function (e, section){
+    if (e) return res.send(500, e);
+    if (!section) return res.send(404, err);
+    req.section = section;
+    next();
+  });
+});
+
 ////// END PARAMS
 
 server.listen(3000);
