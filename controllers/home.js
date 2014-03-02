@@ -9,11 +9,6 @@ var homeController = controller({
 	path : ''
 });
 
-// attach all other controllers
-homeController.attach(require('./user'));
-homeController.attach(require('./admin/users.js'));
-homeController.attach(require('./admin/sections.js'));
-
 // Fetch user middle ware
 homeController.beforeEach(function(req, res, next){
 	if(req.session && req.session.passport && req.session.passport.user)
@@ -60,5 +55,11 @@ homeController.get('', function (req, res) {
 homeController.get('/dashboard', User.isLoggedIn, function (req, res) {
 	res.render('home/dashboard', req);
 });
+
+// attach all other controllers
+homeController.attach(require('./user'));
+homeController.attach(require('./admin/users.js'));
+homeController.attach(require('./admin/sections.js'));
+homeController.attach(require('./section.js')); //// <---- SIEMPRE TIENE QUE IR AL FINAL
 
 module.exports = homeController;

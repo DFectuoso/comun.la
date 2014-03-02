@@ -1,3 +1,4 @@
+config/prod.json
 node_modules/
 public/uploads/
 public/thumbs/
@@ -6,4 +7,3 @@ public/gallery/
 
 newrelic.js
 newrelic_agent.log
-

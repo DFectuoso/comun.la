@@ -1,0 +1,126 @@
+{% extends '../layouts/layout.html' %}
+
+{% block title %}Portada{% endblock %}
+
+{% block content %}
+  <div class="page-content">
+		<!-- BEGIN PAGE HEADER-->
+		<div class="row">
+      <div class="col-md-1"></div>
+			<div class="col-md-10">
+				<!-- BEGIN PAGE TITLE & BREADCRUMB-->
+				<h3 class="page-title">
+          {% if post.url %}
+            <a href="{{post.url}}">{{post.title}}</a> <small>({{post.host}})</small>
+          {% else %}
+            {{post.title}}
+          {% endif %}
+				</h3>
+				<ul class="page-breadcrumb breadcrumb">
+					<li class="btn-group">
+            <ul class="list-inline" style="padding:8px 8px 0 0;">
+              <li>
+                <i class="fa fa-calendar"></i>{{post.createdDate|date('j/n/Y') }}
+              </li>
+              <li>
+                <i class="fa fa-comments"></i>38 Comentarios
+              </li>
+            </ul>
+
+					</li>
+					<li>
+            Creado por <a href="/user/{{post.user.id}}">{{post.user.fullname}}</a> en <a href="/{{post.section.slug}}">{{post.section.name}}</a>
+					</li>
+				</ul>
+				<!-- END PAGE TITLE & BREADCRUMB-->
+			</div>
+		</div>
+		<!-- END PAGE HEADER-->
+		<!-- BEGIN PAGE CONTENT-->
+		<div class="row">
+      <div class="col-md-1"></div>
+			<div class="col-md-10 news-page blog-page">
+				<div class="row">
+					<div class="col-md-12 blog-tag-data">
+            {% if post.description %}
+              <div class="news-item-page">
+                {{post.description|striptags|raw|replace('\n', '<br/><br/>') }}
+              </div>
+            {% endif %}
+						<hr>
+						<div class="media">
+							<h3>Comentarios</h3>
+
+              <div class="media-body">
+                <h4 class="media-heading">
+                  <i class="fa fa-user" style="font-size:1.1em"></i>
+                  <a href="/user/{{post.user.id}}">{{post.user.fullname}}</a> escribió el {{post.createdDate|date('j/m/Y  h:i a') }}
+                  <small>/ <a href="#">Responder</a></small>
+                </h4>
+                <p>
+                  Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
+                </p>
+                <hr>
+								<!-- Nested media object -->
+								<div class="media" style="padding-left:50px;">
+										<h4 class="media-heading">
+                      <i class="fa fa-user" style="font-size:1.1em"></i>
+                      <a href="/user/{{post.user.id}}">{{post.user.fullname}}</a> escribió el {{post.createdDate|date('j/m/Y  h:i a') }}
+                      <small>/ <a href="#">Responder</a></small>
+                    </h4>
+                    <p>
+                      Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
+                    </p>
+                    <hr>
+									</div>
+									<!--end media-->
+									<div class="media"  style="padding-left:50px;">
+										<div class="media-body">
+											<h4 class="media-heading">
+                        <i class="fa fa-user" style="font-size:1.1em"></i>
+                        <a href="/user/{{post.user.id}}">{{post.user.fullname}}</a> escribió el {{post.createdDate|date('j/n/Y h:i a') }}
+                        <small>/ <a href="#">Responder</a></small>
+                      </h4>
+                      <p>
+                        Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
+                      </p>
+										</div>
+									</div>
+									<!--end media-->
+								</div>
+							</div>
+
+							<!--end media-->
+							<div class="media">
+								<div class="media-body">
+                  <h4 class="media-heading">
+                    <i class="fa fa-user" style="font-size:1.1em"></i>
+                    <a href="/user/{{post.user.id}}">{{post.user.fullname}}</a> escribió el {{post.createdDate|date('j/n/Y h:i a') }}
+                    <small>/ <a href="#">Responder</a></small>
+                  </h4>
+                  <p>
+                    Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
+                  </p>
+                </div>
+							</div>
+							<!--end media-->
+
+							<hr>
+							<div class="post-comment">
+								<h3>Escribe un comentario:</h3>
+								<form role="form">
+									<div class="form-group">
+										<label class="control-label">Mensaje:
+										</label>
+										<textarea class="form-control" rows="8"></textarea>
+									</div>
+									<button class="btn blue margin-top-10" type="submit">Comentar</button>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- END PAGE CONTENT-->
+		</div>
+{% endblock %}

@@ -62,12 +62,13 @@ require('./models/user');
 
 //// PARAM PARAMS PARAMS ////
 var User    = require('./models/user');
-var Section    = require('./models/section');
+var Section = require('./models/section');
+var Post    = require('./models/post');
 
 server.param('userId', function(req,res, next, id){
   User.findOne({_id:id}, function (e, user){
     if (e) return res.send(500, e);
-    if (!user) return res.send(404, err);
+    if (!user) return res.send(404, e);
     req.requestUser = user;
     next();
   });
@@ -76,8 +77,29 @@ server.param('userId', function(req,res, next, id){
 server.param('sectionId', function(req,res, next, id){
   Section.findOne({_id:id}, function (e, section){
     if (e) return res.send(500, e);
-    if (!section) return res.send(404, err);
+    if (!section) return res.send(404, e);
     req.section = section;
+    next();
+  });
+});
+
+server.param('sectionSlug', function(req,res, next, slug){
+  Section.findOne({slug:slug}, function (e, section){
+    if (e) return res.send(500, e);
+    if (!section) return res.send(404, e);
+    req.section = section;
+    next();
+  });
+});
+
+server.param('postId', function(req,res, next, id){
+  var query = Post.findOne({_id:id});
+  query.populate("user");
+  query.populate("section");
+  query.exec(function (e, post){
+    if (e) return res.send(500, e);
+    if (!post) return res.send(404, e);
+    req.post = post;
     next();
   });
 });

@@ -1,0 +1,53 @@
+{% extends '../layouts/layout.html' %}
+
+{% block title %}Portada{% endblock %}
+
+{% block content %}
+  <div class="page-content"  style="background:#eef0f2">
+    <!-- BEGIN PAGE HEADER-->
+    <div class="row">
+      <div class="col-md-12">
+        <!-- BEGIN PAGE TITLE & BREADCRUMB-->
+        <ul class="page-breadcrumb breadcrumb section-header">
+          <li class="btn-group">
+            <a href="/{{section.slug}}/post" class="btn blue">
+              Crear post
+              <i class="fa fa-angle-right"></i>
+            </a>
+          </li>
+          <li>
+            <strong>{{section.name}}</strong>
+          </li>
+        </ul>
+        <!-- END PAGE TITLE & BREADCRUMB-->
+      </div>
+    </div>
+    <!-- END PAGE HEADER-->
+    <!-- BEGIN PAGE CONTENT-->
+    {% for post in posts %}
+      <div class="row">
+        <div class="col-md-1"></div>
+        <div class="post col-md-10">
+          <div class="left-side">
+            {{loop.index}}.
+            <a href="#" class="upvote"><i class="fa fa-thumbs-up"></i></a>
+          </div>
+          <div class="right-side">
+            {% if post.url %}
+              <div class="title"><a href="{{post.url}}">{{post.title}}</a> <small style="color:grey">({{post.host}})</small></div>
+            {% else %}
+              <div class="title"><a href="/{{post.section.slug}}/post/{{post.id}}">{{post.title}}</a></div>
+            {% endif %}
+
+            <div class="post-footer">
+              Por <a href="/user/{{user.id}}">{{post.user.fullname}}</a> el {{post.createdDate|date('j/m/Y h:i a') }} con 23 puntos | <a href="/{{post.section.slug}}/post/{{post.id}}">43 Comentarios</a>
+            </div>
+
+          </div>
+				</div>
+        <div class="col-md-1"></div>
+      </div>
+    {% endfor %}
+    <!-- END PAGE CONTENT-->
+  </div>
+{% endblock %}
