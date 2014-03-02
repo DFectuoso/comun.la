@@ -6,8 +6,8 @@ Comun.la estara inspirado en sitios como Hacker News/Reddit, pero teniendo un ca
 
 Todo:
 
-- [] Adaptar portada/agregar dashboard look and feel
-- [] Agregar Links correctos para login/logout
+- [DONE] Adaptar portada/agregar dashboard look and feel
+- [] Agregar Links correctos para login/logout y el workflow
 - [] Revisar Roles
 - [] Implementar modelos de Usaria(ya?), Post, Comment, Vote, Seccion
 - [] Add a Seccion manager (only for admins)
@@ -18,4 +18,20 @@ Todo:
 - [] El post calcula su "karma"
 - [] Los post se ordenan por "karma"
 
+
+- Hacer que solo los "admins" puedan ver el menu de admin de la izquierda
+
 /\/\/\/\/\/\/\/\/\/\/\
+
+
+Para correr Redis
+
+redis-server /usr/local/etc/redis.conf
+
+Para correr MongoDb
+
+mongod
+
+Despues de eso, puedes correr la app con
+
+supervisor --debug app.js

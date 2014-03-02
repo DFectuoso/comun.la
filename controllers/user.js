@@ -9,15 +9,26 @@ var userController = controller({
 	child: true
 });
 
+
+userController.get('/login', function (req, res) {
+	req.messageLogin = req.flash('loginMessage')
+	res.render('user/login', req);
+});
+
+userController.get('/signup', function (req, res) {
+	req.signupMessage = req.flash('signupMessage')
+	res.render('user/signup', req);
+});
+
 userController.post('/login', passport.authenticate('local-login', {
 	successRedirect : '/dashboard', // redirect to the secure profile section
-	failureRedirect : '/', // redirect back to the signup page if there is an error
+	failureRedirect : '/user/login', // redirect back to the signup page if there is an error
 	failureFlash : true // allow flash messages
 }));
 
 userController.post('/signup',passport.authenticate('local-signup', {
 	successRedirect : '/dashboard', // redirect to the secure profile section
-	failureRedirect : '/', // redirect back to the signup page if there is an error
+	failureRedirect : '/user/signup', // redirect back to the signup page if there is an error
 	failureFlash : true // allow flash messages
 }));
 

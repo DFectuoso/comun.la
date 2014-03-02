@@ -1,79 +1,61 @@
 {% extends '../layouts/layout.html' %}
 
+{% block title %}Portada{% endblock %}
+
 {% block content %}
+	<div class="page-content">
+		<!-- BEGIN PAGE HEADER-->
+		<div class="row">
+			<div class="col-md-12">
+				<!-- BEGIN PAGE TITLE & BREADCRUMB-->
+				<h3 class="page-title">HOME LOL <small>and charts and stuff</small></h3>
+				<ul class="page-breadcrumb breadcrumb">
+					<li class="btn-group">
+						<button type="button" class="btn blue dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="1000" data-close-others="true">
+							<span>Actions</span>
+							<i class="fa fa-angle-down"></i>
+						</button>
+						<ul class="dropdown-menu pull-right" role="menu">
+							<li>
+								<a href="#">Action</a>
+							</li>
+							<li>
+								<a href="#">Another action</a>
+							</li>
+							<li>
+								<a href="#">Something else here</a>
+							</li>
+							<li class="divider">
 
-	<p>
-		Doge split allows you to generate dogecoin addreses and create automated rules on how to split funds that git that target. The service is free, but there is a 0.5% fee that DogeAPI.com takes.
-	</p>
-
-	<form class="login-form" action="/user/login" method="post">
-		<!-- show any messages that come back with authentication -->
-		<h3 class="form-title">Login to your account</h3>
-		{% if messageLogin.length > 0 %}
-			<div class="alert alert-danger display">
-				<button class="close" data-close="alert"></button>
-				<span>{{messageLogin}}</span>
-			</div>
-		{% endif %}
-
-		<div class="form-group">
-			<label class="control-label visible-ie8 visible-ie9">Email</label>
-			<div class="input-icon">
-				<i class="fa fa-user"></i>
-				<input class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder="E-mail" name="email"/>
-			</div>
-		</div>
-		<div class="form-group">
-			<label class="control-label visible-ie8 visible-ie9">Password</label>
-			<div class="input-icon">
-				<i class="fa fa-lock"></i>
-				<input class="form-control placeholder-no-fix" type="password" autocomplete="off" placeholder="Password" name="password"/>
+							</li>
+							<li>
+								<a href="#">Separated link</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<i class="fa fa-home"></i>
+						<a href="index.html">Dashboard</a>
+						<i class="fa fa-angle-right"></i>
+					</li>
+					<li>
+						<a href="#">Main</a>
+						<i class="fa fa-angle-right"></i>
+					</li>
+					<li>
+						<a href="#">Startups</a>
+					</li>
+				</ul>
+				<!-- END PAGE TITLE & BREADCRUMB-->
 			</div>
 		</div>
-		<div class="form-actions">
-			<button type="submit" class="btn blue pull-right">
-				Login <i class="m-icon-swapright m-icon-white"></i>
-			</button>
-		</div>
-	</form>
-
-
-	<form class="register-form" action="/user/signup" method="post">
-		<h3>Sign Up</h3>
-		<p>Enter your personal details below:</p>
-		<div class="form-group">
-			<!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
-			<label class="control-label visible-ie8 visible-ie9">Email</label>
-			<div class="input-icon">
-				<i class="fa fa-envelope"></i>
-				<input class="form-control placeholder-no-fix" type="text" placeholder="Email" name="email"/>
+		<!-- END PAGE HEADER-->
+		<!-- BEGIN PAGE CONTENT-->
+		<div class="row">
+			<div class="col-md-12">
+				Awesome Content and dashboard goes here
 			</div>
 		</div>
-		<div class="form-group">
-			<label class="control-label visible-ie8 visible-ie9">Password</label>
-			<div class="input-icon">
-				<i class="fa fa-lock"></i>
-				<input class="form-control placeholder-no-fix" type="password" autocomplete="off" id="register_password" placeholder="Password" name="password"/>
-			</div>
-		</div>
-		<div class="form-group">
-			<label class="control-label visible-ie8 visible-ie9">Re-type Your Password</label>
-			<div class="controls">
-				<div class="input-icon">
-					<i class="fa fa-check"></i>
-					<input class="form-control placeholder-no-fix" type="password" autocomplete="off" placeholder="Re-type Your Password" name="rpassword"/>
-				</div>
-			</div>
-		</div>
-		<div class="form-group">
-			<label><input type="checkbox" name="tnc"/> I agree to the <a href="#">Terms of Service</a></label>
-			<div id="register_tnc_error"></div>
-		</div>
-		<div class="form-actions">
-			<button type="submit" id="register-submit-btn" class="btn blue pull-right">
-				Sign Up <i class="m-icon-swapright m-icon-white"></i>
-			</button>
-		</div>
-	</form>
-	<!-- END REGISTRATION FORM -->
+		<!-- END PAGE CONTENT-->
+	</div>
 {% endblock %}

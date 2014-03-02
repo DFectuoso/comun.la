@@ -25,17 +25,14 @@ homeController.beforeEach(function(req, res, next){
 
 			next();
 		});
-	else 
+	else
 		next();
 });
 
 // This is the main log in, no reason to have anything else
 homeController.get('', function (req, res) {
-	if (req.user) {
-		res.redirect("/dashboard")
-	} else {
-		res.render('home/home',{ messageLogin: req.flash('loginMessage') });		
-	}
+	/// TODO CHANGE THIS TO MAKE IT THE DEFAULT SECCION CONTENT
+	res.render('home/home',{ messageLogin: req.flash('loginMessage') });
 });
 
 // This is the main dashboard

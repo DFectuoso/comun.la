@@ -31,8 +31,6 @@ User.isLoggedIn = function(req, res, next) {
 	res.redirect('/');
 }
 
-
-
 var permisions = {};
 User.setPermisions = function(role, config){
 	if(!permisions[role]) permisions[role] = {};
