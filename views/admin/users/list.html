@@ -20,6 +20,9 @@
 						Email
 					</th>
 					<th>
+						Fullname
+					</th>
+					<th>
 						Joined
 					</th>
 					<th>
@@ -28,20 +31,23 @@
 				</tr>
 				</thead>
 				<tbody>
-					{% for user in users %}
+					{% for u in users %}
 						<tr class="odd gradeX">
 							<td>
-								<a href="/admin/users/{{user.id}}">{{user.email}}</a>
+								<a href="/admin/users/{{user.id}}">{{u.email}}</a>
+							</td>
+							<td>
+								{{u.fullname}}
 							</td>
 							<td class="center">
-								{{user.createdDate|date('F jS, Y') }}
+								{{u.createdDate|date('F jS, Y') }}
 							</td>
 							<td>
 								<span class="label label-sm label-success">
-									{{user.role}}
+									{{u.role}}
 								</span>
 							</td>
-						</tr>					
+						</tr>
 					{% endfor %}
 
 

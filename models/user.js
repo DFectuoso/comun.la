@@ -7,6 +7,7 @@ var _ = require('underscore');
 var userSchema = schema({
 	email       : {type : String},
 	password    : {type : String},
+	fullname    : {type : String, required : true},
 	role        : {type : String, required : true, default: 'user'},
 	createdDate : {type : Date, default: Date.now }
 });

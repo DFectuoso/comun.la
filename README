@@ -7,7 +7,7 @@ Comun.la estara inspirado en sitios como Hacker News/Reddit, pero teniendo un ca
 Todo:
 
 - [DONE] Adaptar portada/agregar dashboard look and feel
-- [] Agregar Links correctos para login/logout y el workflow
+- [DONE] Agregar Links correctos para login/logout y el workflow
 - [] Revisar Roles
 - [] Implementar modelos de Usaria(ya?), Post, Comment, Vote, Seccion
 - [] Add a Seccion manager (only for admins)
