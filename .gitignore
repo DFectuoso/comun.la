@@ -1,0 +1,9 @@
+node_modules/
+public/uploads/
+public/thumbs/
+public/gallery/
+.DS_Store
+
+newrelic.js
+newrelic_agent.log
+

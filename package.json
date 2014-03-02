@@ -1,0 +1,25 @@
+{
+  "name": "dogesplit",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "express": "3.4.8",
+    "passport": "~0.1.17",
+    "passport-local" : "~0.1.6",
+    "connect-redis": "~1.4.6",
+    "mongoose": "~3.8.1",
+    "optimist": "~0.6.0",
+    "underscore": "~1.5.2",
+    "swig": "~1.1.0",
+    "async": "~0.2.9",
+    "redis": "~0.9.1",
+    "mongoose-lifecycle": "~1.0.0",
+    "mongoosastic": "~0.2.3",
+    "stackers": "0.0.10",
+    "connect-flash" : "~0.1.1",
+    "bcrypt-nodejs" : "latest"
+  }
+}

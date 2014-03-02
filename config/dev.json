@@ -1,0 +1,9 @@
+{
+	"redis" : {
+		"secret" : "THIS IS A RANDOM STRING",
+		"options" : {}
+	},
+	"mongoDb" : {
+		"db" : "comunla"
+	}
+}

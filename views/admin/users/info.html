@@ -1,0 +1,46 @@
+{% extends '../../layouts/layout.html' %}
+
+
+{% block content %}
+	<div class="page-content">
+		<div class="portlet box blue">
+			<div class="portlet-title">
+				<div class="caption">
+					<i class="fa fa-reorder"></i> User information
+				</div>
+			</div>
+			<div class="portlet-body form">
+				<form role="form" method="post">
+					<div class="form-body">
+						<div class="form-group">
+							<label>Email Address</label>
+							<div class="input-group">
+								<span class="input-group-addon">
+									<i class="fa fa-envelope"></i>
+								</span>
+								<input type="email" class="form-control" value="{{requestUser.email}}" name="email">
+							</div>
+						</div>
+						<div class="form-group">
+							<label>Role</label>
+							<select class="form-control" name="role">
+								<option value="admin" {% if requestUser.role === "admin" %}selected{% endif %}>Admin</option>
+								<option value="partner" {% if requestUser.role === "partner" %}selected{% endif %}>Partner</option>
+								<option value="founder" {% if requestUser.role === "founder" %}selected{% endif %}>Founder</option>
+								<option value="staff" {% if requestUser.role === "staff" %}selected{% endif %}>Staff</option>
+
+							</select>
+						</div>
+					</div>
+					<div class="form-actions">
+						<button type="submit" class="btn blue">Submit</button>
+					</div>
+				</form>
+			</div>
+		</div>
+		<!-- END SAMPLE FORM PORTLET-->
+	</div>
+
+
+
+{% endblock %}

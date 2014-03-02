@@ -1,0 +1,58 @@
+{% extends '../../layouts/layout.html' %}
+
+
+{% block content %}
+	<div class="page-content">
+
+		<!-- BEGIN EXAMPLE TABLE PORTLET-->
+		<div class="portlet box light-grey">
+			<div class="portlet-title">
+				<div class="caption">
+					<i class="fa fa-globe"></i>
+					Users
+				</div>
+			</div>
+			<div class="portlet-body">
+				<table class="table table-striped table-bordered table-hover" id="sample_1">
+				<thead>
+				<tr>
+					<th>
+						Email
+					</th>
+					<th>
+						Joined
+					</th>
+					<th>
+						Role
+					</th>
+				</tr>
+				</thead>
+				<tbody>
+					{% for user in users %}
+						<tr class="odd gradeX">
+							<td>
+								<a href="/admin/users/{{user.id}}">{{user.email}}</a>
+							</td>
+							<td class="center">
+								{{user.createdDate|date('F jS, Y') }}
+							</td>
+							<td>
+								<span class="label label-sm label-success">
+									{{user.role}}
+								</span>
+							</td>
+						</tr>					
+					{% endfor %}
+
+
+				</tbody>
+				</table>
+			</div>
+		</div>
+		<!-- END EXAMPLE TABLE PORTLET-->
+
+
+	</div>
+
+
+{% endblock %}

@@ -1,0 +1,21 @@
+Comun.la
+
+Comun.la es el sitio donde la comunidad emprendedora, programadores, diseñadores y cualquier otro perfil interesado en engranarse con la comunidad que esta creando startups en la region!
+Comun.la estara inspirado en sitios como Hacker News/Reddit, pero teniendo un caracter fuerte por comunidades locales.
+
+
+Todo:
+
+- [] Adaptar portada/agregar dashboard look and feel
+- [] Agregar Links correctos para login/logout
+- [] Revisar Roles
+- [] Implementar modelos de Usaria(ya?), Post, Comment, Vote, Seccion
+- [] Add a Seccion manager (only for admins)
+- [] En una seccion, pueda crear un post
+- [] En un post, puedo agregar un comentario
+- [] A un comentario, puedo agregarle un comentario
+- [] A un post lo puedo votar
+- [] El post calcula su "karma"
+- [] Los post se ordenan por "karma"
+
+/\/\/\/\/\/\/\/\/\/\/\
