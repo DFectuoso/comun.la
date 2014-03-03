@@ -8,13 +8,14 @@ var postSchema = schema({
 
   title         : {type : String},
   description   : {type : String},
+  sectionSlug   : {type : String},
   url       		: {type : String},
   host       	 : {type : String},
 
   section   		: { type: schema.Types.ObjectId, ref: 'section' },
   user		      : { type: schema.Types.ObjectId, ref: 'user' },
   karma 	      : { type: Number },
-  //comments 	      : {type : Boolean, default: false },
+  comments      : [{ type: schema.Types.ObjectId, ref: 'comment' }],
 
 });
 

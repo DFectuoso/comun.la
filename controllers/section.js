@@ -4,6 +4,7 @@ var url = require('url');
 var User = require('../models/user');
 var Section = require('../models/section');
 var Post = require('../models/post');
+var Comment = require('../models/comment');
 
 var currentController = controller({
   path : '',
@@ -29,8 +30,63 @@ currentController.get(':sectionSlug/post', User.isLoggedIn, function (req, res) 
   res.render('post/new', req);
 });
 
-currentController.get(':sectionSlug/post/:postId', User.isLoggedIn, function (req, res) {
+currentController.get(':sectionSlug/post/:postIdWithComments', function (req, res) {
+
+  function findComment(comments, id){
+    for(var i = 0; i < comments.length; i++){
+      var comment = comments[i];
+      if(comment.id == id)
+        return comment;
+    }
+  }
+
+  function orderComments(comments){
+    var orderedComments = [];
+
+    for(var i = 0; i < comments.length; i++){
+      var comment = comments[i];
+      if(comment.parentComment === undefined){
+        orderedComments.push(comment);
+      } else {
+        var parentComment = findComment(comments, comment.parentComment);
+        if(parentComment.childComments === undefined)
+          parentComment.childComments = [];
+        parentComment.childComments.push(comment);
+      }
+    }
+
+    return orderedComments;
+  }
+
+
+  req.orderedComments = orderComments(req.post.comments);
+
   res.render('post/info', req);
+});
+
+/// CREATE NEW COMMENT // THIS MIGHT GO IN THE COMMENT CONTROLLER? NOT SURE
+currentController.post(':sectionSlug/post/:postId', User.isLoggedIn, function (req, res) {
+  var comment = new Comment({
+    content      : req.body.commentContent,
+    user         : req.user,
+    post         : req.post,
+    userId       : req.user.id,
+    userFullName : req.user.fullname,
+  });
+
+  comment.save(function(err,data){
+    if(err)
+      return res.send(500, err);
+
+      req.post.comments.push(data);
+
+      req.post.save(function (e) {
+        if(e)
+          return res.send(500, e);
+
+        res.redirect('/' + req.section.slug + '/post/' + req.post.id);
+      })
+  });
 });
 
 currentController.get(':sectionSlug/post', User.isLoggedIn, function (req, res) {

@@ -4,6 +4,7 @@ public/uploads/
 public/thumbs/
 public/gallery/
 .DS_Store
+npm-debug.log
 
 newrelic.js
 newrelic_agent.log

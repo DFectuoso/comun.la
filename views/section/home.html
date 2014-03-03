@@ -40,7 +40,8 @@
             {% endif %}
 
             <div class="post-footer">
-              Por <a href="/user/{{user.id}}">{{post.user.fullname}}</a> el {{post.createdDate|date('j/m/Y h:i a') }} con 23 puntos | <a href="/{{post.section.slug}}/post/{{post.id}}">43 Comentarios</a>
+              Por <a href="/user/{{user.id}}">{{post.user.fullname}}</a> el {{post.createdDate|date('j/m/Y h:i a') }} con 23 puntos |
+              <a href="/{{post.section.slug}}/post/{{post.id}}">{{post.comments.length}} Comentarios</a>
             </div>
 
           </div>

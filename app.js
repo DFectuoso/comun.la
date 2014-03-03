@@ -16,7 +16,7 @@ swigHelpers(swig);
 
 server.engine('html', swig.renderFile);
 server.set('view engine', 'html');
-server.set('views', './views');
+server.set('views', __dirname + '/views');
 server.set('view cache', false);
 
 // Swig cache just on produccion
@@ -64,6 +64,7 @@ require('./models/user');
 var User    = require('./models/user');
 var Section = require('./models/section');
 var Post    = require('./models/post');
+var Comment    = require('./models/comment');
 
 server.param('userId', function(req,res, next, id){
   User.findOne({_id:id}, function (e, user){
@@ -100,6 +101,30 @@ server.param('postId', function(req,res, next, id){
     if (e) return res.send(500, e);
     if (!post) return res.send(404, e);
     req.post = post;
+    next();
+  });
+});
+
+server.param('postIdWithComments', function(req,res, next, id){
+  var query = Post.findOne({_id:id});
+  query.populate("user");
+  query.populate("section");
+  query.populate("comments");
+  query.exec(function (e, post){
+    if (e) return res.send(500, e);
+    if (!post) return res.send(404, e);
+    req.post = post;
+    next();
+  });
+});
+
+server.param('commentId', function(req,res, next, id){
+  var query = Comment.findOne({_id:id});
+  query.populate("post");
+  query.exec(function (e, comment){
+    if (e) return res.send(500, e);
+    if (!comment) return res.send(404, e);
+    req.comment = comment;
     next();
   });
 });

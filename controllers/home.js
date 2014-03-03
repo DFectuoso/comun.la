@@ -60,6 +60,7 @@ homeController.get('/dashboard', User.isLoggedIn, function (req, res) {
 homeController.attach(require('./user'));
 homeController.attach(require('./admin/users.js'));
 homeController.attach(require('./admin/sections.js'));
+homeController.attach(require('./comment.js'));
 homeController.attach(require('./section.js')); //// <---- SIEMPRE TIENE QUE IR AL FINAL
 
 module.exports = homeController;

@@ -4109,3 +4109,7 @@ padding-left: 3px;
 .section-header .btn-group a{
   height: 50px;
 }
+
+.media .media {
+  padding-left: 50px;
+}

@@ -23,7 +23,7 @@
                 <i class="fa fa-calendar"></i>{{post.createdDate|date('j/n/Y') }}
               </li>
               <li>
-                <i class="fa fa-comments"></i>38 Comentarios
+                <i class="fa fa-comments"></i>{{post.comments.length}} Comentarios
               </li>
             </ul>
 
@@ -44,75 +44,25 @@
 					<div class="col-md-12 blog-tag-data">
             {% if post.description %}
               <div class="news-item-page">
-                {{post.description|striptags|raw|replace('\n', '<br/><br/>') }}
+                {{post.description|striptags|raw|replace('\n', '<br/><br/>', 'g') }}
               </div>
             {% endif %}
 						<hr>
-						<div class="media">
+						<div class="">
 							<h3>Comentarios</h3>
 
-              <div class="media-body">
-                <h4 class="media-heading">
-                  <i class="fa fa-user" style="font-size:1.1em"></i>
-                  <a href="/user/{{post.user.id}}">{{post.user.fullname}}</a> escribió el {{post.createdDate|date('j/m/Y  h:i a') }}
-                  <small>/ <a href="#">Responder</a></small>
-                </h4>
-                <p>
-                  Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-                </p>
-                <hr>
-								<!-- Nested media object -->
-								<div class="media" style="padding-left:50px;">
-										<h4 class="media-heading">
-                      <i class="fa fa-user" style="font-size:1.1em"></i>
-                      <a href="/user/{{post.user.id}}">{{post.user.fullname}}</a> escribió el {{post.createdDate|date('j/m/Y  h:i a') }}
-                      <small>/ <a href="#">Responder</a></small>
-                    </h4>
-                    <p>
-                      Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-                    </p>
-                    <hr>
-									</div>
-									<!--end media-->
-									<div class="media"  style="padding-left:50px;">
-										<div class="media-body">
-											<h4 class="media-heading">
-                        <i class="fa fa-user" style="font-size:1.1em"></i>
-                        <a href="/user/{{post.user.id}}">{{post.user.fullname}}</a> escribió el {{post.createdDate|date('j/n/Y h:i a') }}
-                        <small>/ <a href="#">Responder</a></small>
-                      </h4>
-                      <p>
-                        Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-                      </p>
-										</div>
-									</div>
-									<!--end media-->
-								</div>
-							</div>
-
-							<!--end media-->
-							<div class="media">
-								<div class="media-body">
-                  <h4 class="media-heading">
-                    <i class="fa fa-user" style="font-size:1.1em"></i>
-                    <a href="/user/{{post.user.id}}">{{post.user.fullname}}</a> escribió el {{post.createdDate|date('j/n/Y h:i a') }}
-                    <small>/ <a href="#">Responder</a></small>
-                  </h4>
-                  <p>
-                    Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-                  </p>
-                </div>
-							</div>
-							<!--end media-->
+              {% for comment in orderedComments %}
+                {% include "./_comment.html" %}
+              {% endfor %}
 
 							<hr>
 							<div class="post-comment">
 								<h3>Escribe un comentario:</h3>
-								<form role="form">
+								<form role="form" method="post">
 									<div class="form-group">
 										<label class="control-label">Mensaje:
 										</label>
-										<textarea class="form-control" rows="8"></textarea>
+										<textarea class="form-control" rows="8" name="commentContent"></textarea>
 									</div>
 									<button class="btn blue margin-top-10" type="submit">Comentar</button>
 								</form>
