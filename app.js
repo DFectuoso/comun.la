@@ -106,5 +106,5 @@ server.param('postId', function(req,res, next, id){
 
 ////// END PARAMS
 
-server.listen(3000);
-console.log('server running at http://localhost.com:3000');
+server.listen(3001);
+console.log('server running at http://localhost.com:3001');
