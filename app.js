@@ -2,7 +2,8 @@ var express  = require('express'),
     swig     = require('swig'),
     conf     = require('./conf'),
     passport = require('passport'),
-    flash 	 = require('connect-flash');;
+    flash 	 = require('connect-flash'),
+    cronJob = require('cron').CronJob;
 
 var server = express();
 
@@ -130,6 +131,29 @@ server.param('commentId', function(req,res, next, id){
 });
 
 ////// END PARAMS
+
+/// 0 * * * * Every hour <<<<
+/// Right now it is every minute, in the future it might change to every hour
+new cronJob('* * * * *', function(){
+  console.log("Corriendo cronjob a las: " + new Date());
+  Section.find({},function(err, sections){
+    for(var i = 0; i < sections.length; i++){
+      var section = sections[i];
+
+      Post.find({section:section}).sort("-karma").limit(100).exec(function (err,posts) {
+        for(var j = 0; j < posts.length; j++){
+          var post = posts[j];
+          post.calculateKarma();
+          post.save(function (err) {
+            if(err)
+              console.log("Failed to save post while calculating karma on the cron:" + err);
+          })
+        }
+      });
+    }
+  })
+
+}, null, true);
 
 server.listen(3001);
 console.log('server running at http://localhost.com:3001');

@@ -5,6 +5,8 @@ var User = require('../models/user');
 var Section = require('../models/section');
 var Post = require('../models/post');
 var Comment = require('../models/comment');
+var Vote = require('../models/vote');
+var _ = require('underscore');
 
 var currentController = controller({
   path : '',
@@ -13,14 +15,33 @@ var currentController = controller({
 
 
 currentController.get(':sectionSlug', function (req, res) {
+  req.perPage = 25;
+  req.page = (req.query.page === undefined)?0:req.query.page;
+
   var query = Post.find({section:req.section});
-  query.populate("user")
-  query.populate("section")
+  query.sort('-karma');
+  query.populate("user");
+  query.populate("section");
+  query.limit(req.perPage);
+  query.skip(req.perPage * req.page);
   query.exec(function (err, posts) {
     if(err)
       return res.send(500, err);
 
     req.posts = posts;
+
+    if(req.user){
+      for(var i = 0; i < req.posts.length; i++){
+        var post = req.posts[i];
+        for(var j = 0; j < post.userIdVotes.length; j++){
+          var userIdVote = post.userIdVotes[j];
+          if(userIdVote.toString() == req.user.id){
+            post.voted = true;
+          }
+        }
+      }
+    }
+
     res.render('section/home', req);
   })
 });
@@ -104,19 +125,21 @@ currentController.post(':sectionSlug/post', User.isLoggedIn, function (req, res)
   }
 
   var post = new Post({
-    title	     : req.body.title,
-    description : req.body.description,
-    url         : postUrl,
-    host        : host,
-    sectionSlug : req.section.slug,
-    section     : req.section,
-    user        : req.user,
-    karma       : 0,
+    title	        : req.body.title,
+    description    : req.body.description,
+    url            : postUrl,
+    host           : host,
+    sectionSlug    : req.section.slug,
+    section        : req.section,
+    user           : req.user,
+    karma          : 0,
+    sectionGravity : req.section.gravity,
   });
 
   post.save(function(err){
     if(err)
       return res.send(500, err);
+
     res.redirect('/' + req.section.slug + '/post/' + post.id);
   });
 });

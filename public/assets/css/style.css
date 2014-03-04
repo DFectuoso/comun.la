@@ -2728,6 +2728,7 @@ Dashboard stats
   clear: both;
   display: block;
   padding: 5px 10px 5px 10px;
+  height: 25px;
   text-transform: uppercase;
   font-weight: 300;
   font-size: 11px;
@@ -4094,6 +4095,11 @@ padding-left: 3px;
 
 .post .left-side .upvote i{
   font-size: 2em;
+}
+
+.post .left-side .voted{
+  font-size: 1.3em;
+  color: #2b9b28;
 }
 
 .post .right-side a:hover{

@@ -8,19 +8,30 @@ Todo:
 
 - [DONE] Adaptar portada/agregar dashboard look and feel
 - [DONE] Agregar Links correctos para login/logout y el workflow
-- [] Revisar Roles
-- [] Implementar modelos de Usaria(ya?), Post, Comment, Vote, Seccion
-- [] Add a Seccion manager (only for admins)
-- [] En una seccion, pueda crear un post
-- [] En un post, puedo agregar un comentario
-- [] A un comentario, puedo agregarle un comentario
-- [] A un post lo puedo votar
-- [] El post calcula su "karma"
-- [] Los post se ordenan por "karma"
+- [PAUSA] Revisar Roles
+- [DONE] Implementar modelos de Usaria(ya?), Post, Comment, Vote, Seccion
+- [DONE] Add a Seccion manager (only for admins)
+- [DONE] En una seccion, pueda crear un post
+- [DONE] En un post, puedo agregar un comentario
+- [DONE] A un comentario, puedo agregarle un comentario
+- [DONE] A un post lo puedo votar
+- [DONE] Configurar server
+
+- [DONE] El post calcula su "karma"
+- [DONE] Los post se ordenan por "karma"
+- [DONE] El karma se recalcula cada hora
+- [DOME] Los post estan paginados
+- [] Escribir algo especial en el Dashboard
+- [] Hacer que solo los "admins" puedan ver el menu de admin de la izquierda
+- [] Hacer que fullname sea nickname, y checar que es unico!
+- [] Hacer que / redireccion a main
+- [] Subir al server
+- [] Release!
 
 
-- Hacer que solo los "admins" puedan ver el menu de admin de la izquierda
 
+/\/\/\/\/\/\/\/\/\/\/\
+- [LATER] Cuando creas un post, votas por el automaticamente
 /\/\/\/\/\/\/\/\/\/\/\
 
 

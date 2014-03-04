@@ -8,52 +8,123 @@
 		<div class="row">
 			<div class="col-md-12">
 				<!-- BEGIN PAGE TITLE & BREADCRUMB-->
-				<h3 class="page-title">Dashboard <small>and charts and stuff</small></h3>
-				<ul class="page-breadcrumb breadcrumb">
-					<li class="btn-group">
-						<button type="button" class="btn blue dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="1000" data-close-others="true">
-							<span>Actions</span>
-							<i class="fa fa-angle-down"></i>
-						</button>
-						<ul class="dropdown-menu pull-right" role="menu">
-							<li>
-								<a href="#">Action</a>
-							</li>
-							<li>
-								<a href="#">Another action</a>
-							</li>
-							<li>
-								<a href="#">Something else here</a>
-							</li>
-							<li class="divider">
+				<h3 class="page-title">Comun.la <small>el inicio de una comunidad</small></h3>
 
-							</li>
-							<li>
-								<a href="#">Separated link</a>
-							</li>
-						</ul>
-					</li>
-					<li>
-						<i class="fa fa-home"></i>
-						<a href="index.html">Dashboard</a>
-						<i class="fa fa-angle-right"></i>
-					</li>
-					<li>
-						<a href="#">Main</a>
-						<i class="fa fa-angle-right"></i>
-					</li>
-					<li>
-						<a href="#">Startups</a>
-					</li>
-				</ul>
 				<!-- END PAGE TITLE & BREADCRUMB-->
 			</div>
 		</div>
 		<!-- END PAGE HEADER-->
-		<!-- BEGIN PAGE CONTENT-->
+
+		<div class="row">
+				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+					<div class="dashboard-stat blue">
+						<div class="visual">
+							<i class="fa fa-comments"></i>
+						</div>
+						<div class="details">
+							<div class="number">
+								 {{totalComments}}
+							</div>
+							<div class="desc">
+								 Comentarios
+							</div>
+						</div>
+						<span class="more"></span>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+					<div class="dashboard-stat green">
+						<div class="visual">
+							<i class="fa fa-smile-o"></i>
+						</div>
+						<div class="details">
+							<div class="number">
+								{{totalUsers}}
+							</div>
+							<div class="desc">
+								Usuarios
+							</div>
+						</div>
+						<span class="more"></span>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+					<div class="dashboard-stat purple">
+						<div class="visual">
+							<i class="fa fa-thumbs-up"></i>
+						</div>
+						<div class="details">
+							<div class="number">
+								{{totalVotes}}
+							</div>
+							<div class="desc">
+								Votos
+							</div>
+						</div>
+						<span class="more"></span>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+					<div class="dashboard-stat yellow">
+						<div class="visual">
+							<i class="fa fa-pencil-square-o"></i>
+						</div>
+						<div class="details">
+							<div class="number">
+								{{totalPosts}}
+							</div>
+							<div class="desc">
+								Post
+							</div>
+						</div>
+						<span class="more"></span>
+					</div>
+				</div>
+			</div>
+
+
 		<div class="row">
 			<div class="col-md-12">
-				Awesome Content and dashboard goes here
+				<div class="note note-success">
+					<h4 class="block"><strong>Bienvenidos a Comun.la</strong></h4>
+					<p>
+						La intención de este sitio es poder <strong>ayudar a la comunidad emprendedora de toda la región, a estar en contacto, compartir contenido y así aprender más y conocer a más gente!</strong>
+					</p><p>
+						Crear algo así no es fácil, ni sucede de la noche a la mañana, y vamos a necesitar la ayuda de muchas personas!
+					</p><p>
+						El sitio está dividido en dos grandes “zonas”, una sección general de Emprendimiento, y secciones especificas para diferentes ciudades. Conforme exista más movimiento en el sitio, podremos crear más secciones generales y conforme tengamos representantes de cada ciudad, vamos a ir creando esos espacios.
+					</p><p>
+						Lanzamos esta semana, y el código lo construimos en muy poco tiempo, por lo que necesitamos mucha ayuda!
+					</p><p>
+						Nos puedes ayudar:
+					</p>
+					<ul>
+						<li><strong>Agregando contenidos.</strong></li>
+						<li><strong>Participando en las discusiones.</strong></li>
+						<li><strong>Invitando a más personas.</strong></li>
+						<li><strong>Probando el sitio.</strong></li>
+					</ul>
+					<p>
+						Por favor, envíanos cualquier duda, comentario o sugerencia a santiago1717@gmail.com o a rocio.r.aguiar@gmail.com.
+					</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-12">
+				<div class="note note-warning">
+					<h4 class="block">Super Alpha</h4>
+
+					<p>
+						El sitio esta en estado Super Alpha, por lo que quizá tengamos que “reiniciar” la base de datos y/o algunas cosas se rompan. Por favor reporten cualquier problema a santiago1717@gmail.com.
+					</p><p>
+						Estamos en proceso de abrir el código (pero estamos usando un template y hay un tema de licencias), pero si quieres experimentar la parte de seguridad o colaborar en el código, por favor, avísanos, no corras pruebas directamente en este servidor!
+					</p><p>
+						Muchas gracias!
+					</p>
+
+				</div>
 			</div>
 		</div>
 		<!-- END PAGE CONTENT-->

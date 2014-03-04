@@ -10,6 +10,7 @@ var userSchema = schema({
 	fullname    : {type : String, required : true},
 	role        : {type : String, required : true, default: 'user'},
 	createdDate : {type : Date, default: Date.now }
+
 });
 
 var User = model.model('user', userSchema);

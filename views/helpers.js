@@ -7,6 +7,9 @@ var helpers = function(swig){
 	});
 
 */
+	swig.setFilter('add', function (input,other) {
+		return Number(input) + Number(other);
+	});
 
 
 	swig.setFilter('toString', function (input) {

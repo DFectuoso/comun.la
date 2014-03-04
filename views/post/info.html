@@ -44,7 +44,7 @@
 					<div class="col-md-12 blog-tag-data">
             {% if post.description %}
               <div class="news-item-page">
-                {{post.description|striptags|raw|replace('\n', '<br/><br/>', 'g') }}
+                {{post.description|striptags|raw|replace('\n', '<br/>', 'g') }}
               </div>
             {% endif %}
 						<hr>
