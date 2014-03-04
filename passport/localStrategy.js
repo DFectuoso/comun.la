@@ -69,8 +69,8 @@ module.exports = function(passport) {
 	        // asynchronous
 	        // User.findOne wont fire unless data is sent back
 	        process.nextTick(function() {
-			// find a user whose email is the same as the forms email
-			// we are checking to see if the user trying to login already exists
+      			// find a user whose email is the same as the forms email
+      			// we are checking to see if the user trying to login already exists
 		        User.findOne({ 'email' :  email }, function(err, user) {
 		            // if there are any errors, return the error
 		            if (err)
@@ -78,24 +78,35 @@ module.exports = function(passport) {
 
 		            // check to see if theres already a user with that email
 		            if (user) {
-		                return done(null, false, req.flash('signupMessage', 'Este correo ya esta registrado.'));
+		                return done(null, false, req.flash('signupMessage', 'Este correo ya esta utilizado.'));
 		            } else {
 
-						// if there is no user with that email
-		                // create the user
-		                var newUser            = new User();
+                  User.findOne({ 'nicknameLowercase' : req.body.nickname.toLowerCase() }, function(err, user) {
+                    if (err)
+                        return done(err);
 
-		                // set the user's local credentials
-		                newUser.email       = email;
-		                newUser.fullname    = req.body.fullname;
-		                newUser.password    = User.generateHash(password);
+                    // check to see if theres already a user with that email
+                    if (user) {
+                        return done(null, false, req.flash('signupMessage', 'Este nickname ya esta utilizado.'));
+                    } else {
+                      // if there is no user with that email
+                      // create the user
+                      var newUser            = new User();
 
-						// save the user
-		                newUser.save(function(err) {
-		                    if (err)
-		                        throw err;
-		                    return done(null, newUser);
-		                });
+                      // set the user's local credentials
+                      newUser.email       = email;
+                      newUser.password    = User.generateHash(password);
+                      newUser.nickname    = req.body.nickname;
+                      newUser.nicknameLowercase = req.body.nickname.toLowerCase();
+
+                      // save the user
+                      newUser.save(function(err) {
+                          if (err)
+                              throw err;
+                          return done(null, newUser);
+                      });
+                    }
+                  });
 		            }
 		        });
         	});

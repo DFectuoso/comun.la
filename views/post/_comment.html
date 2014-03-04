@@ -2,7 +2,7 @@
   <div class="media-body">
     <h4 class="media-heading">
       <i class="fa fa-user" style="font-size:1.1em"></i>
-      <a href="/user/{{comment.userId}}">{{comment.userFullName}}</a> escribió el {{comment.createdDate|date('j/n/Y h:i a') }}
+      <a href="/user/{{comment.userId}}">{{comment.userNickname}}</a> escribió el {{comment.createdDate|date('j/n/Y h:i a') }}
       <small>/ <a href="/comment/{{comment.id}}">Responder</a></small>
     </h4>
     <p>

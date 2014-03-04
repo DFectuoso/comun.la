@@ -5,12 +5,12 @@ var model  = require('./../lib/model'),
 var _ = require('underscore');
 
 var userSchema = schema({
-	email       : {type : String},
-	password    : {type : String},
-	fullname    : {type : String, required : true},
-	role        : {type : String, required : true, default: 'user'},
-	createdDate : {type : Date, default: Date.now }
-
+	email             : {type : String},
+	password          : {type : String},
+	nickname          : {type : String, required : true},
+	nicknameLowercase : {type : String, required : true, unique:true},
+	role              : {type : String, required : true, default: 'user'},
+	createdDate       : {type : Date, default: Date.now }
 });
 
 var User = model.model('user', userSchema);

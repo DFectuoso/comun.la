@@ -56,6 +56,7 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 				<ul class="nav navbar-nav pull-right">
 					{% if user %}
 						<!-- BEGIN INBOX DROPDOWN -->
+<!--
 						<li class="dropdown" id="header_inbox_bar">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
 							<i class="fa fa-envelope"></i>
@@ -179,7 +180,7 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 							</a>
 							<ul class="dropdown-menu">
 								<li>
-									<a href="extra_profile.html"><i class="fa fa-user"></i> My Profile</a>
+									<a href="/user/{{user.id}}"><i class="fa fa-user"></i> My Profile</a>
 								</li>
 								<li class="divider">
 								</li>

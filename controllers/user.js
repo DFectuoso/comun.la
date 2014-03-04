@@ -2,7 +2,11 @@
 var controller = require('stackers'),
 	passport = require('passport');
 
+var async = require('async');
 var User = require('../models/user');
+var Post = require('../models/post');
+var Vote = require('../models/vote');
+var Comment = require('../models/comment');
 
 var userController = controller({
 	path : 'user',
@@ -38,8 +42,39 @@ userController.get('/logout', function (req, res) {
 	res.redirect('/');
 });
 
-userController.get('/profile', User.isLoggedIn, function (req, res) {
-	res.render('user/profile');
+userController.get('/:userId', User.isLoggedIn, function (req, res) {
+	var queries = {};
+
+	queries.totalUsers = function(done){
+		User.count({_id:req.requestUser.id}).exec(function(err, totalUsers){
+			done(err, totalUsers);
+		});
+	};
+	queries.totalPosts = function(done){
+		Post.count({user:req.requestUser}).exec(function(err, totalPosts){
+			done(err, totalPosts);
+		});
+	};
+	queries.totalVotes = function(done){
+		Vote.count({user:req.requestUser}).exec(function(err, totalVotes){
+			done(err, totalVotes);
+		});
+	};
+	queries.totalComments = function(done){
+		Comment.count({user:req.requestUser}).exec(function(err, totalComments){
+			done(err, totalComments);
+		});
+	};
+
+	async.parallel(queries, function(err, data){
+		req.totalUsers = data.totalUsers;
+		req.totalPosts = data.totalPosts;
+		req.totalVotes = data.totalVotes;
+		req.totalComments = data.totalComments;
+
+		res.render('user/profile', req);
+	});
+
 });
 
 module.exports = userController;

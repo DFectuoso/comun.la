@@ -27,7 +27,7 @@ userAdminController.get('/:userId', function (req, res) {
 
 userAdminController.post('/:userId', function (req, res) {
 	req.requestUser.role = req.body.role;
-	req.requestUser.fullname = req.body.fullname;
+	req.requestUser.nickname = req.body.nickname;
 	req.requestUser.email = req.body.email;
 
 	req.requestUser.save(function(err){

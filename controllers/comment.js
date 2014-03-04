@@ -22,7 +22,7 @@ currentController.post('/:commentId', User.isLoggedIn, function (req, res) {
     user         : req.user,
     post         : req.comment.post,
     userId       : req.user.id,
-    userFullName : req.user.fullname,
+    userNickname : req.user.nickname,
     parentComment: req.comment
   });
 

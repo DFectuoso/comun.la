@@ -10,7 +10,7 @@ var commentSchema = schema({
   user		      : { type: schema.Types.ObjectId, ref: 'user' },
   post		      : { type: schema.Types.ObjectId, ref: 'post' },
   userId        : {type : String},
-  userFullName  : {type : String},
+  userNickname  : {type : String},
   parentComment : { type: schema.Types.ObjectId, ref: 'parentComment' },
 
 });

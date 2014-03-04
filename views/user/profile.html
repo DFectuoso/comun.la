@@ -1,0 +1,86 @@
+{% extends '../layouts/layout.html' %}
+
+{% block title %}Portada{% endblock %}
+
+{% block content %}
+  <div class="page-content">
+    <!-- BEGIN PAGE HEADER-->
+    <div class="row">
+      <div class="col-md-12">
+        <!-- BEGIN PAGE TITLE & BREADCRUMB-->
+        <h3 class="page-title">{{requestUser.nickname}}</h3>
+
+        <!-- END PAGE TITLE & BREADCRUMB-->
+      </div>
+    </div>
+    <!-- END PAGE HEADER-->
+
+    <div class="row">
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+          <div class="dashboard-stat blue">
+            <div class="visual">
+              <i class="fa fa-comments"></i>
+            </div>
+            <div class="details">
+              <div class="number">
+                 {{totalComments}}
+              </div>
+              <div class="desc">
+                 Comentarios
+              </div>
+            </div>
+            <span class="more"></span>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+          <div class="dashboard-stat green">
+            <div class="visual">
+              <i class="fa fa-smile-o"></i>
+            </div>
+            <div class="details">
+              <div class="number">
+                {{totalUsers}}
+              </div>
+              <div class="desc">
+                Usuarios
+              </div>
+            </div>
+            <span class="more"></span>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+          <div class="dashboard-stat purple">
+            <div class="visual">
+              <i class="fa fa-thumbs-up"></i>
+            </div>
+            <div class="details">
+              <div class="number">
+                {{totalVotes}}
+              </div>
+              <div class="desc">
+                Votos
+              </div>
+            </div>
+            <span class="more"></span>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+          <div class="dashboard-stat yellow">
+            <div class="visual">
+              <i class="fa fa-pencil-square-o"></i>
+            </div>
+            <div class="details">
+              <div class="number">
+                {{totalPosts}}
+              </div>
+              <div class="desc">
+                Post
+              </div>
+            </div>
+            <span class="more"></span>
+          </div>
+        </div>
+      </div>
+    <!-- END PAGE CONTENT-->
+  </div>
+{% endblock %}

@@ -92,7 +92,7 @@ currentController.post(':sectionSlug/post/:postId', User.isLoggedIn, function (r
     user         : req.user,
     post         : req.post,
     userId       : req.user.id,
-    userFullName : req.user.fullname,
+    userNickname : req.user.nickname,
   });
 
   comment.save(function(err,data){
