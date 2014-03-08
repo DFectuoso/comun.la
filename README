@@ -1,3 +1,4 @@
+
 Comun.la
 
 Comun.la es el sitio donde la comunidad emprendedora, programadores, diseñadores y cualquier otro perfil interesado en engranarse con la comunidad que esta creando startups en la region!
@@ -21,12 +22,13 @@ Todo:
 - [DONE] Los post se ordenan por "karma"
 - [DONE] El karma se recalcula cada hora
 - [DOME] Los post estan paginados
-- [] Escribir algo especial en el Dashboard
-- [] Hacer que solo los "admins" puedan ver el menu de admin de la izquierda
-- [] Hacer que fullname sea nickname, y checar que es unico!
-- [] Hacer que / redireccion a main
-- [] Subir al server
-- [] Release!
+- [DONE] Hacer que / redireccion a main
+- [DONE] Hacer que solo los "admins" puedan ver el menu de admin de la izquierda
+- [DONE] Escribir algo especial en el Dashboard
+- [DONE] Hacer que fullname sea nickname, y checar que es unico!
+- [DONE] Hacer /profile super basico
+- [DONE] Subir al server
+- [DONE] Release!
 
 
 

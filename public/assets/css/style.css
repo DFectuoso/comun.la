@@ -4119,3 +4119,9 @@ padding-left: 3px;
 .media .media {
   padding-left: 50px;
 }
+
+.logo{
+  height: 23px;
+  padding-top: 0;
+  margin-top: -4px;
+}
