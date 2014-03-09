@@ -16,11 +16,10 @@ var homeController = controller({
 // Fetch user middle ware
 homeController.beforeEach(function(req, res, next){
 	if(req.session && req.session.passport && req.session.passport.user)
-		var query = User.findOne({email : req.session.passport.user.email },function(err, user){
+		var query = User.findOne({_id : req.session.passport.user }).populate({path:"notifications",options:{sort:"-createdDate",limit:10}}).exec(function(err, user){
 			if(err) return res.send(500);
 
 			if(user){
-				req.body.user = _.pick(user.toJSON(), 'username', 'avatar', 'role');
 				req.user = user;
 			}
 
@@ -102,6 +101,7 @@ homeController.get('/dashboard', User.isLoggedIn, function (req, res) {
 homeController.attach(require('./user'));
 homeController.attach(require('./admin/users.js'));
 homeController.attach(require('./admin/sections.js'));
+homeController.attach(require('./notification.js'));
 homeController.attach(require('./comment.js'));
 homeController.attach(require('./vote.js'));
 homeController.attach(require('./section.js')); //// <---- SIEMPRE TIENE QUE IR AL FINAL

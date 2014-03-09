@@ -65,7 +65,8 @@ require('./models/user');
 var User    = require('./models/user');
 var Section = require('./models/section');
 var Post    = require('./models/post');
-var Comment    = require('./models/comment');
+var Comment = require('./models/comment');
+var Notification = require('./models/notification');
 
 server.param('userId', function(req,res, next, id){
   User.findOne({_id:id}, function (e, user){
@@ -122,10 +123,22 @@ server.param('postIdWithComments', function(req,res, next, id){
 server.param('commentId', function(req,res, next, id){
   var query = Comment.findOne({_id:id});
   query.populate("post");
+  query.populate("user");
   query.exec(function (e, comment){
     if (e) return res.send(500, e);
     if (!comment) return res.send(404, e);
     req.comment = comment;
+    next();
+  });
+});
+
+server.param('notificationId', function(req,res, next, id){
+  var query = Notification.findOne({_id:id});
+  query.populate("parentPost");
+  query.exec(function (e, notification){
+    if (e) return res.send(500, e);
+    if (!notification) return res.send(404, e);
+    req.notification = notification;
     next();
   });
 });

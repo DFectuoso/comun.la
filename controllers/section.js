@@ -6,6 +6,8 @@ var Section = require('../models/section');
 var Post = require('../models/post');
 var Comment = require('../models/comment');
 var Vote = require('../models/vote');
+var Notification = require('../models/notification');
+
 var _ = require('underscore');
 
 var currentController = controller({
@@ -106,6 +108,7 @@ currentController.post(':sectionSlug/post/:postId', User.isLoggedIn, function (r
           return res.send(500, e);
 
         res.redirect('/' + req.section.slug + '/post/' + req.post.id);
+        req.user.createNotificationFromComment(comment, req.post);
       })
   });
 });

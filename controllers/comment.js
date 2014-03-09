@@ -37,6 +37,7 @@ currentController.post('/:commentId', User.isLoggedIn, function (req, res) {
           return res.send(500, e);
 
         res.redirect('/' + req.comment.post.sectionSlug + '/post/' + req.comment.post.id);
+        req.user.createNotificationFromComment(comment, req.comment.post, req.comment);
       })
   });
 
