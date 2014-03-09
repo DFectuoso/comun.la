@@ -21,9 +21,7 @@ User.generateHash = function(password) {
 
 // checking if password is valid
 User.prototype.validPassword = function(password) {
-	console.log(password)
-	console.log(this.password)
-    return bcrypt.compareSync(password, this.password);
+  return bcrypt.compareSync(password, this.password);
 };
 
 User.isLoggedIn = function(req, res, next) {

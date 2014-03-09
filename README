@@ -36,15 +36,23 @@ Todo:
 - [LATER] Cuando creas un post, votas por el automaticamente
 /\/\/\/\/\/\/\/\/\/\/\
 
+instalar mongo, redis, node, npm y git
 
-Para correr Redis
+Yo instale mongo y redis con brew con los comandos
+brew update
+brew install mongodb
+brew install redis
 
+Node lo baje de http://nodejs.org/download/ y es un instalador e instala npm también. Git me imagino que ya lo tienes.
+
+corro redis en terminal(en un tab) con:
 redis-server /usr/local/etc/redis.conf
 
-Para correr MongoDb
-
+y corro mongo con(en otro tab):
 mongod
 
-Despues de eso, puedes correr la app con
+Clonar el proyecto en una carpeta, y después correr el comando en el root del proyecto para instalar todas las dependencias:
+npm install -g node-inspector supervisor forever
 
+Una vez teniendo instalado, necesitas estar corriendo mongo y redis y correr:
 supervisor --debug app.js
