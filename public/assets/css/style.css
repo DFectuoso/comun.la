@@ -4133,3 +4133,11 @@ padding-left: 3px;
 .unread td{
   background-color:#BAD3FF !important;
 }
+
+.copyright{
+  font-size:0.8em !important;
+}
+
+.copyright a{
+  color:white;
+}
