@@ -54,7 +54,6 @@ currentController.get(':sectionSlug/post', User.isLoggedIn, function (req, res) 
 });
 
 currentController.get(':sectionSlug/post/:postIdWithComments', function (req, res) {
-
   function findComment(comments, id){
     for(var i = 0; i < comments.length; i++){
       var comment = comments[i];
@@ -127,7 +126,7 @@ currentController.post(':sectionSlug/post', User.isLoggedIn, function (req, res)
     postUrl = parsedUrl.href;
   }
 
-  var post = new Post({
+  req.post = new Post({
     title	        : req.body.title,
     description    : req.body.description,
     url            : postUrl,
@@ -139,11 +138,27 @@ currentController.post(':sectionSlug/post', User.isLoggedIn, function (req, res)
     sectionGravity : req.section.gravity,
   });
 
-  post.save(function(err){
+  req.post.save(function(err){
     if(err)
       return res.send(500, err);
 
-    res.redirect('/' + req.section.slug + '/post/' + post.id);
+    var vote = new Vote({
+      user  : req.user,
+      post  : req.post,
+    });
+
+    vote.save(function(err, data){
+      if(err) return res.send(500, err);
+
+      req.post.votes.push(data);
+      req.post.userIdVotes.push(req.user);
+      req.post.calculateKarma();
+      req.post.save(function(err){
+        if(err) return res.send(500, err);
+
+        res.redirect('/' + req.section.slug + '/post/' + req.post.id);
+      });
+    });
   });
 });
 
