@@ -1,58 +1,23 @@
-{% extends '../layouts/outside.html' %}
+{% extends '../layouts/user_layout.html' %}
 
 {% block content %}
-	<!-- BEGIN REGISTRATION FORM -->
-	<form action="/user/signup" method="post">
-		<h3>Regístrate</h3>
+	<div id="info">
+		<h2>Regístrate</h2>
 
-    {% if signupMessage.length > 0 %}
-      <div class="alert alert-danger display">
-        <button class="close" data-close="alert"></button>
-        <span>{{signupMessage}}</span>
-      </div>
-    {% endif %}
+  	{% if signupMessage.length > 0 %}
+			<div>
+				<span class="error">{{signupMessage}}</span>
+			</div>
+		{% endif %}
 
-		<p>Escribe tu información:</p>
-		<div class="form-group">
-			<label class="control-label visible-ie8 visible-ie9">Nickname</label>
-			<div class="input-icon">
-				<i class="fa fa-font"></i>
-				<input class="form-control placeholder-no-fix" type="text" placeholder="Nickname" name="nickname"/>
-			</div>
-		</div>
-		<div class="form-group">
-			<!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
-			<label class="control-label visible-ie8 visible-ie9">Email</label>
-			<div class="input-icon">
-				<i class="fa fa-envelope"></i>
-				<input class="form-control placeholder-no-fix" type="text" placeholder="Email" name="email"/>
-			</div>
-		</div>
-		<div class="form-group">
-			<label class="control-label visible-ie8 visible-ie9">Password</label>
-			<div class="input-icon">
-				<i class="fa fa-lock"></i>
-				<input class="form-control placeholder-no-fix" type="password" autocomplete="off" id="register_password" placeholder="Password" name="password"/>
-			</div>
-		</div>
-		<div class="form-group">
-			<label class="control-label visible-ie8 visible-ie9">Password, otra vez</label>
-			<div class="controls">
-				<div class="input-icon">
-					<i class="fa fa-check"></i>
-					<input class="form-control placeholder-no-fix" type="password" autocomplete="off" placeholder="Password, otra vez" name="rpassword"/>
-				</div>
-			</div>
-		</div>
-		<div class="form-group">
-			<label><input type="checkbox" name="tnc"/>Estoy de acuerdo con los terminos de servicios</label>
-			<div id="register_tnc_error"></div>
-		</div>
-    <div class="form-actions">
-      <button type="submit" class="btn blue pull-right">
-        Iniciar <i class="m-icon-swapright m-icon-white"></i>
-      </button>
-    </div>
-	</form>
-	<!-- END REGISTRATION FORM -->
+    <form action="/user/signup" method="post">
+        Nickname: <input type="text" placeholder="Nickname" name="nickname"><br>
+        E-mail: <input type="text" placeholder="Email" name="email"><br>
+        Contraseña: <input type="password" placeholder="Password" name="password"><br>
+        Contraseña, otra vez: <input type="text" type="rpassword" placeholder="Password, otra vez."><br>
+        <label><input type="checkbox" name="tnc"> Estoy de acuerdo con los términos y condiciones.</label>
+        <input type="submit" value="Ingresar">
+    </form>
+	</div>
+	<p><a href="/">Ir al Inicio</a></p>
 {% endblock %}

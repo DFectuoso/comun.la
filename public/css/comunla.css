@@ -1,0 +1,198 @@
+/*
+	Autor: Manu Uribe
+	Web:   manucrea.com
+*/
+
+body {font-family: 'Roboto', sans-serif; font-weight: 300;}
+.clearfix {clear: both;}
+a {
+	-webkit-transition: background-color 300ms ease-out;
+	-moz-transition: background-color 300ms ease-out;
+	transition: background-color 300ms ease-out;
+}
+
+header {background-color: #076ca1; position: fixed; top: 0; width: 100%; z-index: 10; height: 4em; box-shadow: 0px 2px 5px rgba(0,0,0,0.3); -moz-box-shadow: 0px 2px 5px rgba(0,0,0,0.3); -o-box-shadow: 0px 2px 5px rgba(0,0,0,0.3);}
+header #logo {float: left; max-width: 250px}
+header #logo a {}
+header #logo img {width: 100%}
+header #login {height: 4em; position: absolute; right: -5em; transition: all 0.3s ease-out; -webkit-transition: all 0.3s ease-out; -moz-transition: all 0.3s ease-out; -o-transition: all 0.3s ease-out;}
+header #login a {color: #FFF; font-size: 0.75em; float: right; padding: 1.65em 2em; height: 100%}
+header #login span {margin-left: 1.5em; vertical-align: middle;}
+header #login a:hover {background-color: #09577f;}
+header #login:hover {right: 0}
+
+aside {width: 12em; background-color: #076ca1; height: auto; min-height: 100%; position: absolute; padding: 4em 0 6em; z-index: 5; transition: all 0.3s ease-out; -webkit-transition: all 0.3s ease-out; -moz-transition: all 0.3s ease-out; -o-transition: all 0.3s ease-out;}
+aside a, aside a:hover {color: #FFF}
+aside ul {font-size: 0.8em}
+aside ul#panel {margin: 0; padding: 0; list-style: none; position: relative; z-index: 5}
+aside ul#panel li {height: 4.65em; border-bottom: solid 1px #086190; background-repeat: no-repeat; background-position: 1.5em center; position: relative; transition: all 0.3s ease-out; -webkit-transition: all 0.3s ease-out; -moz-transition: all 0.3s ease-out; -o-transition: all 0.3s ease-out;}
+aside ul#panel li:hover {background-color: #07496b; border-bottom: solid 1px #07496b;}
+aside ul#panel li a {display: block; padding: 1.5em 1em 1.5em 3.5em;}
+aside ul#panel li span {height: 20px; width: 20px; display: block; float: right;}
+aside ul#panel li span.arrow-down {background-image: url(../img/arrow-down.png);}
+aside ul#panel li span.arrow-up {background-image: url(../img/arrow-up.png);}
+aside ul#panel #dashboard {background-image: url(../img/home.png);}
+aside ul#panel #temas {background-image: url(../img/list.png);}
+aside ul#panel #ciudades {background-image: url(../img/pin.png);}
+aside ul#panel ul.subtemas {background-color: #09577f; font-size: 1em; margin: 0;}
+aside ul#panel ul.subtemas li {border-bottom: solid 1px #07496b;}
+aside ul#panel ul.subtemas li:last-child {border-bottom: 0}
+aside ul#panel ul.subtemas li:hover {background-color: #07496b; transition: all 0.3s ease-out; -webkit-transition: all 0.3s ease-out; -moz-transition: all 0.3s ease-out; -o-transition: all 0.3s ease-out;}
+aside ul#panel ul.subtemas li a {}
+aside #back {background-color: #076ca1; position: fixed; width: 12em; height: 100%; top: 0}
+
+section {padding: 6em 2em 3em 14em; min-width: 750px}
+section a:hover {text-decoration: underline;}
+section .left {float: left; padding: 1.3em}
+section .right {float: right;}
+section .title-head {background-color: #e9edef; display: inline-block; width: 100%}
+section .title-head .icon {display: inline-block; vertical-align: top; margin-right: 1em}
+section .title-head .icon img {}
+section .title-head h1 {color: #076ca1; display: inline-block; font-size: 1.3em; font-weight: 400; line-height: 1em; margin: 0}
+section .title-head br {display: none;}
+section .title-head a#create {background-image: url(../img/create.png); background-repeat: no-repeat; background-position: 1em center; font-size: 0.9em; margin: 0; padding: 1.5em 1.5em 1.5em 3em;}
+section ul#post-list {margin: 1.5em 0; list-style: none;}
+section ul#post-list li {background-color: #f8f9f9; border: solid 1px #e0e3e5; margin-bottom: 1em; height: 4em; background-image: url(../img/bg-list.jpg); background-repeat: repeat-x; background-position: top;}
+section ul#post-list li .vote {display: inline-block; vertical-align: top; width: 80px; height: 3.95em}
+section ul#post-list li .vote button {background-color: #076ca1; float: left; margin: 0; background-image: url(../img/like.png); background-repeat: no-repeat; background-position: center 0.75em; padding: 2.5em 1.25em 0.8em; font-size: 0.8em; height: 100%}
+section ul#post-list li .vote:hover button {background-color: #ff8a00}
+section ul#post-list li .vote.inactive span.arrow, section ul li .vote.inactive:hover span.arrow {border-left: 6px solid #c0cbd2}
+section ul#post-list li .inactive button, section ul li .inactive:hover button {background-color: #c0cbd2}
+section ul#post-list li .vote:hover span.arrow {border-left: 6px solid #ff8a00}
+section ul#post-list li .vote .pts {}
+section ul#post-list li .vote span.arrow {width: 0; float: left; height: 0; margin-top: 0.75em; border-top: 6px solid transparent; border-bottom: 6px solid transparent; border-left: 6px solid #076ca1;}
+section ul#post-list li .post {display: inline-block; vertical-align: top; }
+section ul#post-list li .post .title {margin-top: 0.2em}
+section ul#post-list li .post .title h2 {color: #076ca1; display: inline-block; font-size: 1.25em; margin: 0}
+section ul#post-list li .post .title span {color: #757575; font-size: 0.75em}
+section ul#post-list li .post ul.meta {margin: 0.65em 0 0; font-size: 0.75em; color: #757575}
+section ul#post-list li .post ul.meta li {background-color: transparent; border: 0; display: inline-block; vertical-align: top; margin: 0 2em 0 0; padding-left: 1.5em; background-repeat: no-repeat; background-position: left center; height: auto;}
+section ul#post-list li .post ul.meta li a {color: #757575; font-weight: 400}
+section ul#post-list li .post ul.meta li.author {background-image: url(../img/author.png)}
+section ul#post-list li .post ul.meta li.time {background-image: url(../img/time.png)}
+section ul#post-list li .post ul.meta li.comments {background-image: url(../img/comments.png)}
+section#messages {color: #757575}
+section#messages ul {margin: 1rem 0; list-style: none;}
+section#messages ul li {margin-bottom: 1rem; display: block; min-height: 3rem; border-bottom: solid 1px #e0e3e5; padding: 1rem; line-height: 1rem; background-color: #f8f9f9}
+section#messages ul li.unread {background-color: #d8d9d9}
+section#messages ul li a {color: #757575; font-weight: 400}
+section#messages ul li div {background-repeat: no-repeat; display: inline-block; padding-left: 1.5rem; vertical-align: top;}
+section#messages ul li .author {background-image: url(../img/author.png); width: 25%;}
+section#messages ul li .comments {background-image: url(../img/comments.png); width: 49%;}
+section#messages ul li .time {background-image: url(../img/time.png); width: 25%;}
+
+footer {position: fixed; bottom: 0; width: 100%; background-color: #FFF; z-index: 6}
+footer p {text-align: right; font-size: 0.75em; margin: 0.5em}
+footer a {font-weight: 600}
+
+#screen-log {margin: 5em auto; max-width: 20em; min-width: 15em; box-shadow: 0px 2px 5px rgba(0,0,0,0.3); -moz-box-shadow: 0px 2px 5px rgba(0,0,0,0.3); -o-box-shadow: 0px 2px 5px rgba(0,0,0,0.3);}
+#screen-log .center {padding: 1em}
+#screen-log #head-log {background-color: #076ca1; text-align: center; padding: 0.5em 0}
+#screen-log #head-log img {}
+#screen-log #info {margin-bottom: 2em}
+#screen-log #info input[type="text"] {margin: 0.5em 0}
+#screen-log #info label {color: #076ca1; font-weight: 300; margin-bottom: 1em}
+#screen-log #info input[type="checkbox"] {margin: 0}
+#screen-log #info input[type="submit"] {background-color: #ff8a00; border: 0; color: #FFF; cursor: pointer; font-family: 'Roboto', sans-serif; font-size: 1em; padding: 1em 0; width: 100%; transition: all 0.3s ease-out; -webkit-transition: all 0.3s ease-out; -moz-transition: all 0.3s ease-out; -o-transition: all 0.3s ease-out;}
+#screen-log #info input[type="submit"]:hover {background-color: #d57300;}
+#screen-log p {font-size: 0.85em; margin-bottom: 0.25em; font-weight: 300}
+#screen-log a:hover {text-decoration: underline;}
+
+#sesion {float: right; right: -96%; height: 100%; padding: 1.2em 0.5em; position: absolute; width: 100%; transition: all 0.3s ease-out; -webkit-transition: all 0.3s ease-out; -moz-transition: all 0.3s ease-out; -o-transition: all 0.3s ease-out;}
+#sesion img {display: inline-block; vertical-align: middle; margin: 0 1em; cursor: pointer; float: left;}
+#sesion ul {margin: 0; display: inline-block; vertical-align: middle; display: none;}
+#sesion li {display: inline-block; margin-left: 1em}
+#sesion li a, #sesion li a:hover {color: #FFF; font-size: 0.75em;}
+#sesion li a:hover {text-decoration: underline;}
+#sesion:hover {background-color: #09577f;}
+#sesion.open {right: -60%; background-color: #09577f;}
+#sesion.open ul {display: block;}
+
+#tema {padding: 6em 2em 10em 14em}
+#tema ul.meta-post {margin: 0 0 2em; background-color: #f8f9f9; padding: 0.5em 1em; line-height: 1em;}
+#tema ul.meta-post li {border: 0; background-image: none; color: #757575; display: inline-block; height: auto; background-color: transparent; font-size: 0.8em; margin: 0 2em 0 0; padding-left: 1.5em; background-repeat: no-repeat; background-position: left center;}
+#tema ul.meta-post li.author {background-image: url(../img/author.png)}
+#tema ul.meta-post li.time {background-image: url(../img/time.png)}
+#tema ul.meta-post li.comments {background-image: url(../img/comments.png)}
+#tema ul.meta-post li a {color: #757575; font-weight: 400}
+#tema h2, #dashboard h2 {color: #076ca1; font-size: 1.4em; font-weight: 300}
+#tema ul#comments-post {list-style: none; margin: 0 0 2em}
+#tema ul#comments-post li {height: auto; background-color: #f8f9f9; margin-bottom: 1em; border: solid 1px #e0e3e5;}
+#tema ul#comments-post li ul.meta {margin: 0; padding: 1em; border-bottom: solid 1px #e0e3e5}
+#tema ul#comments-post li ul.meta li {border: 0; background-image: none; color: #757575; display: inline-block; height: auto; background-color: transparent; font-size: 0.8em; margin: 0 2em 0 0; padding-left: 1.5em; background-repeat: no-repeat; background-position: left center;}
+#tema ul#comments-post li ul.meta li a {color: #757575; font-weight: 400}
+#tema ul#comments-post li ul.meta li.author {background-image: url(../img/author.png)}
+#tema ul#comments-post li ul.meta li.time {background-image: url(../img/time.png)}
+#tema ul#comments-post li ul.meta li.reply {background-image: url(../img/reply.png)}
+#tema ul#comments-post li ul.meta li.recommend {background-image: url(../img/recommend.png)}
+#tema ul#comments-post li .content {padding: 0.5em 1em}
+#tema ul#comments-post li .content p {font-weight: 300; margin: 0 0 0.25em}
+#tema #comment-author {}
+#tema #comment-author textarea {min-height: 10em; color: #076ca1; font-size: 1em; font-weight: 300;}
+#tema #comment-author button#comment {float: right;}
+#tema ul#comments-post li .reply-user {list-style: none; border-left: solid 1em #076ca1; margin: 0.5em;}
+	#tema ul#comments-post li .reply-user li {background-color: #e0e3e5; border: solid 1px #c5c8cb; border-bottom: solid 1px #c5c8cb; margin-bottom: 0}
+#tema ul#comments-post li .reply-user li ul.meta {padding: 0.5em 0.5em 0}
+
+#dashboard {}
+#dashboard ul#meta-panel {margin: 2em 0 0; list-style: none;}
+#dashboard ul#meta-panel li {background-color: #076ca1; float: left; width: 25%; vertical-align: top; padding: 0 0.5em 0 0; height: 5em; padding-right: 0.5em; border-right: solid 0.5em #FFF}
+#dashboard ul#meta-panel li:last-child {padding-right: 0; border-right: none}
+#dashboard ul#meta-panel li img {background-color: #ff8a00; float: left; padding: 0.95em}
+#dashboard ul#meta-panel li .info {color: #FFF; float: left; margin-left: 0.5em}
+#dashboard ul#meta-panel li .info span {font-size: 2em}
+#dashboard ul#meta-panel li .info p {margin: 0 0 0.25em; font-size: 0.75em}
+#dashboard #bienvenida, #dashboard #note {background-color: #e9edef; border-left: solid 2px #076ca1; padding: 1em; margin: 2em 0;}
+#dashboard p {}
+#dashboard #bienvenida ul {}
+#dashboard #bienvenida li {}
+
+#responsive-main {display: none; position: absolute; right: 0; height: 100%; padding-top: 4em; top: 0; background-color: #076ca1; z-index: 5}
+#responsive-main #stack {position: relative;}
+button#main {background-image: url(../img/main-open.png); background-color: #076ca1;background-repeat: no-repeat; width: 3.7em; padding: 0; height: 3.7em; margin: 0; background-position: center; position: fixed; left: 0; z-index: 10}
+button#main.open {background-image: url(../img/main-close.png); left: 12em}
+
+@media only screen and (max-width: 1080px){
+	section#messages ul li .comments {width: 100%; margin-top: 1em}
+	section#messages ul li .author {width: 49%;}
+	section#messages ul li .time {width: 49%;}
+}
+@media only screen and (max-width: 640px) {
+	#responsive-main {display: block;}
+	aside {width: auto}
+	aside ul#panel {width: 0; overflow: hidden; transition: all 0.3s ease-out; -webkit-transition: all 0.3s ease-out; -moz-transition: all 0.3s ease-out; -o-transition: all 0.3s ease-out;}
+	aside ul#panel.open {width: 15em;}
+	aside #back {width: 3.7em}
+	aside #back.open {width: 15.7em}
+	header #login:hover {right: -5em}
+	section {padding: 5.5em 1em 3em 5em; min-width: 200px; font-size: 90%}
+	section .left, section .right {float: none !important;}
+	section .left {padding: 1em 0.5em}
+	section .title-head .icon {margin-right: 0}
+	section .title-head a#create {padding: 1em 1.5em 1em 3em; text-align: left; width: 100%}
+	section ul#post-list li {height: auto; background-image: none;}
+	section .title-head h1 {font-size: 1em; vertical-align: sub;}
+	section ul#post-list li .post {padding: 0.5em}
+	section ul#post-list li .post .title h2 {font-size: 1em}
+	section ul#post-list li .vote {width: 100%; height: auto}
+	section ul#post-list li .vote span.arrow {display: none;}
+	section ul#post-list li .vote button {width: 100%; padding: 1em 1.5em 1em 3em; height: auto; background-position: 1em center; text-align: left;}
+	section ul#post-list li .post ul.meta li {display: block;}
+	footer p {text-align: center; font-size: 0.65em}
+	#screen-log {margin: 1em 1em 5em}
+	section#messages ul li {padding: 0.25rem 0.5rem}
+	section#messages ul li div {float: none; margin: 0.5em 0; font-size: 0.85em; width: 100%;}
+	#sesion {right: -80%;}
+	#sesion.open {right: 0; width: 100%;}
+	#sesion li {margin-left: 0.5em}
+	#dashboard p {font-size: 1em;}
+	section .title-head br {display: block;}
+	#dashboard ul#meta-panel {margin: 1em 0 0}
+	#dashboard ul#meta-panel li {width: 100%; border-right: none; height: auto; margin-bottom: 0.15em}
+	#dashboard ul#meta-panel li img {padding: 0.25em}
+	#dashboard ul#meta-panel li .info p {margin: 0; line-height: 1em}
+	#dashboard ul#meta-panel li .info span {font-size: 1.5em}
+	#dashboard #bienvenida {margin: 1em 0;}
+	#tema {padding: 5.5em 1em 10em 5em}
+	#tema ul#comments-post li .content p {font-size: 0.85rem}
+}

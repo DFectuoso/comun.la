@@ -1,48 +1,20 @@
-{% extends '../layouts/outside.html' %}
+{% extends '../layouts/user_layout.html' %}
 
 {% block content %}
-	<!-- BEGIN LOGIN FORM -->
-	<form class="login-form" action="/user/login" method="post">
-		<!-- show any messages that come back with authentication -->
-		<h3 class="form-title">Inicia sesión.</h3>
-
-    {% if messageLogin.length > 0 %}
-			<div class="alert alert-danger display">
-				<button class="close" data-close="alert"></button>
-				<span>{{messageLogin}}</span>
+	<div id="info">
+		{% if messageLogin.length > 0 %}
+			<div>
+				<span class="error">{{messageLogin}}</span>
 			</div>
 		{% endif %}
 
-		<div class="alert alert-danger display-hide">
-			<button class="close" data-close="alert"></button>
-			<span>Escribe tu email y password.</span>
-		</div>
-		<div class="form-group">
-			<!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
-			<label class="control-label visible-ie8 visible-ie9">Email</label>
-			<div class="input-icon">
-				<i class="fa fa-user"></i>
-				<input class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder="E-mail" name="email"/>
-			</div>
-		</div>
-		<div class="form-group">
-			<label class="control-label visible-ie8 visible-ie9">Password</label>
-			<div class="input-icon">
-				<i class="fa fa-lock"></i>
-				<input class="form-control placeholder-no-fix" type="password" autocomplete="off" placeholder="Password" name="password"/>
-			</div>
-		</div>
-		<div class="form-actions">
-			<button type="submit" class="btn blue pull-right">
-				Iniciar <i class="m-icon-swapright m-icon-white"></i>
-			</button>
-		</div>
-		<div class="create-account">
-			<p>
-				 No tienes una cuenta ?&nbsp; <a href="/user/signup">Regístrate!</a>
-			</p>
-		</div>
-	</form>
-	<!-- END LOGIN FORM -->
-
+	  <form action="/user/login" method="post">
+	      Email: <input type="text" name="email" placeholder="E-mail"><br>
+	      Contraseña: <input type="password" name="password" placeholder="Password"><br>
+	      <input type="submit" value="Ingresar">
+	  </form>
+	</div>
+	<!-- <p><a href="">¿Has perdido tu contraseña?</a></p> -->
+	<p><a href="/user/signup">¿No estás registrado?</a></p>
+	<p><a href="/">Ir al Inicio</a></p>
 {% endblock %}

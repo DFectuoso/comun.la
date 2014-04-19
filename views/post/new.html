@@ -2,51 +2,29 @@
 
 
 {% block content %}
-  <div class="page-content">
-    <!-- BEGIN PAGE HEADER-->
-    <div class="row">
-      <div class="col-md-12">
-        <!-- BEGIN PAGE TITLE & BREADCRUMB-->
-        <h3 class="page-title">Nuevo Post en <strong>{{section.name}}</strong></small></h3>
-        <!-- END PAGE TITLE & BREADCRUMB-->
-      </div>
+  <section id="dashboard">
+    <div class="title-head">
+      <div class="left"><span class="icon"><img src="/img/create.png"></span> <h1>Nuevo Post en <strong>{{section.name}}</strong></h1><br></div>
     </div>
-    <!-- END PAGE HEADER-->
-    <!-- BEGIN PAGE CONTENT-->
-    <!-- BEGIN SAMPLE FORM PORTLET-->
-    <div class="portlet box blue">
-      <div class="portlet-title">
-        <div class="caption">
-          <i class="fa fa-reorder"></i> Datos
-        </div>
-      </div>
-      <div class="portlet-body form">
-        <form role="form" method="post">
-          <div class="form-body">
-            <div class="form-group">
-              <label>Titulo <small style="font-size:0.7em;color:red">*Obligatorio</small></label>
-              <input type="text" class="form-control" name="title" placeholder="Titulo">
-            </div>
 
-            <div class="form-group">
-              <label>Url <small style="font-size:0.7em;">(Opcional)</small></label>
-              <input type="text" class="form-control" name="url" placeholder="Url">
-            </div>
+            <div class="clearfix"></div>
 
-            <div class="form-group">
-              <label>Texto <small style="font-size:0.7em;">(Opcional)</small></label>
-              <textarea class="form-control" rows="6" name="description" placeholder="Más texto..."></textarea>
-            </div>
-          </div>
+    <form role="form" method="post">
+      Titulo:<small style="font-size:0.7em;color:red">*Obligatorio</small>
+      <input type="text" class="form-control" name="title" placeholder="Titulo"><br/>
 
-          <div class="form-actions right">
-            <button type="submit" class="btn blue">Guardar</button>
-          </div>
-        </form>
-      </div>
-    </div>
-    <!-- END SAMPLE FORM PORTLET-->
-  </div>
+      Url:<small style="font-size:0.7em;">(Opcional)</small>
+      <input type="text" class="form-control" name="url" placeholder="Url"><br/>
+
+      Texto: <small style="font-size:0.7em;">(Opcional)</small>
+      <textarea class="form-control" rows="6" name="description" placeholder="Más texto..."></textarea><br/>
+
+      <button type="submit" class="btn blue">Guardar</button>
+    </form>
+
+  </section>
+
+
 
 
 

@@ -3,63 +3,22 @@
 {% block title %}Portada{% endblock %}
 
 {% block content %}
-  <div class="page-content">
-    <!-- BEGIN PAGE HEADER-->
-    <div class="row">
-      <div class="col-md-1"></div>
-      <div class="col-md-10">
-        <!-- BEGIN PAGE TITLE & BREADCRUMB-->
-        <h3 class="page-title">
-          {% if comment.post.url %}
-            <a href="{{post.url}}">{{comment.post.title}}</a> <small>({{comment.post.host}})</small>
-          {% else %}
-            {{comment.post.title}}
-          {% endif %}
-        </h3>
-        <ul class="page-breadcrumb breadcrumb">
-          <li class="btn-group">
-            <ul class="list-inline" style="padding:8px 8px 0 0;">
-              <li>
-                <i class="fa fa-calendar"></i>{{comment.post.createdDate|date('j/n/Y') }}
-              </li>
-              <li>
-                <i class="fa fa-comments"></i>{{comment.post.comments.length}} Comentarios
-              </li>
-            </ul>
 
-          </li>
-          <li>
-          </li>
-        </ul>
-        <!-- END PAGE TITLE & BREADCRUMB-->
-      </div>
+  <section id="dashboard">
+    <div class="title-head">
+      <div class="left"><span class="icon"><img src="/img/create.png"></span> <h1>Responder a comentario</h1><br></div>
     </div>
-    <!-- END PAGE HEADER-->
-    <!-- BEGIN PAGE CONTENT-->
-    <div class="row">
-      <div class="col-md-1"></div>
-      <div class="col-md-10 news-page blog-page">
-        <div class="row">
-          <div class="col-md-12 blog-tag-data">
-            <div class="news-item-page">
-              {{comment.content|striptags|raw|replace('\n', '<br/><br/>') }}
-            </div>
-            <div class="media">
-              <div class="post-comment">
-                <h3>Responder a este comentario:</h3>
-                <form role="form" method="post">
-                  <div class="form-group">
-                    <label class="control-label">Mensaje:
-                    </label>
-                    <textarea class="form-control" rows="8" name="commentContent"></textarea>
-                  </div>
-                  <button class="btn blue margin-top-10" type="submit">Responder</button>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- END PAGE CONTENT-->
+
+    <div>
+      {{comment.content|striptags|raw|replace('\n', '<br/><br/>') }}
     </div>
+    <div class="clearfix"></div>
+
+    <form method="post">
+      Comentario:
+      <textarea rows="8" name="commentContent"></textarea><br/>
+      <button type="submit">Responder</button>
+    </form>
+  </section>
+
 {% endblock %}

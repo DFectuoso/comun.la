@@ -3,84 +3,66 @@
 {% block title %}Portada{% endblock %}
 
 {% block content %}
-  <div class="page-content"  style="background:#eef0f2">
-    <!-- BEGIN PAGE HEADER-->
-    <div class="row">
-      <div class="col-md-12">
-        <!-- BEGIN PAGE TITLE & BREADCRUMB-->
-        <ul class="page-breadcrumb breadcrumb section-header">
-          <li class="btn-group">
-            <a href="/{{section.slug}}/post" class="btn blue">
-              Crear post
-              <i class="fa fa-angle-right"></i>
-            </a>
-          </li>
-          <li>
-            <strong>{{section.name}}</strong>
-          </li>
-        </ul>
-        <!-- END PAGE TITLE & BREADCRUMB-->
-      </div>
+
+  <section>
+    <div class="title-head">
+        <div class="left"><span class="icon"><img src="/img/title.png"></span> <h1>{{section.name}}</h1></div>
+        <div class="right"><a href="/{{section.slug}}/post" id="create" class="button">CREAR POST</a></div>
     </div>
-    <!-- END PAGE HEADER-->
-    <!-- BEGIN PAGE CONTENT-->
-    {% for post in posts %}
-      <div class="row">
-        <div class="col-md-1"></div>
-        <div class="post col-md-10">
-          <div class="left-side">
-            {{loop.index|add(page * perPage)}}.
-            <a href="#" class="upvote{% if post.voted %} voted{% endif %}" data-postid="{{post.id}}"><i class="fa fa-thumbs-up"></i></a>
+
+    <div class="clearfix"></div>
+
+    <ul id="post-list">
+      {% for post in posts %}
+        <li>
+          <div class="vote {% if post.voted %}inactive{% endif %}" data-postid="{{post.id}}">
+            <button><div class="pts"><span>{{post.votes.length}}</span> votos</div></button>
+            <span class="arrow"></span>
           </div>
-          <div class="right-side">
+          <div class="post">
+
             {% if post.url %}
-              <div class="title"><a href="{{post.url}}">{{post.title}}</a> <small style="color:grey">({{post.host}})</small></div>
+              <a href="{{post.url}}"><div class="title"><h2>{{loop.index|add(page * perPage)}}. {{post.title}}</h2></a> <span>({{post.host}})</span></div>
             {% else %}
-              <div class="title"><a href="/{{post.section.slug}}/post/{{post.id}}">{{post.title}}</a></div>
+              <a href="/{{post.section.slug}}/post/{{post.id}}"><div class="title"><h2>{{loop.index|add(page * perPage)}}. {{post.title}}</h2></a></div>
             {% endif %}
 
-            <div class="post-footer">
-              Por <a href="/user/{{post.user.id}}">{{post.user.nickname}}</a> el {{post.createdDate|date('j/m/Y h:i a') }} con {{post.votes.length}} puntos |
-              <a href="/{{post.section.slug}}/post/{{post.id}}">{{post.comments.length}} Comentarios</a>
-            </div>
-
+            <ul class="meta">
+              <li class="author"><a href="/user/{{post.user.id}}">{{post.user.nickname}}</a></li>
+              <li class="time">{{post.createdDate|date('j/m/Y h:i a') }}</li>
+              <li class="comments"><a href="/{{post.section.slug}}/post/{{post.id}}"><span>{{post.comments.length}}</span> Comentarios</a></li>
+            </ul>
           </div>
-				</div>
-        <div class="col-md-1"></div>
-      </div>
-    {% endfor %}
+        </li>
+      {% endfor %}
+    </ul>
 
-
-    <div class="row">
-      <div class="col-md-1"></div>
-      <div class="col-md-10">
-        <!-- BEGIN PAGE TITLE & BREADCRUMB-->
-        <ul class="page-breadcrumb section-header">
-            {% if page != 0%}<a href="/{{section.slug}}?page={{page|add(-1)}}" style="float:left"class="">< Anterior</a>{% endif %}
-            {% if posts.length == perPage %}<a href="/{{section.slug}}?page={{page|add(1)}}" style="float:right">Siguiente ></a>{% endif %}
-        </ul>
-        <!-- END PAGE TITLE & BREADCRUMB-->
-      </div>
+    <div>
+      <ul class="page-breadcrumb section-header">
+        {% if page != 0%}<a href="/{{section.slug}}?page={{page|add(-1)}}" style="float:left"class="">< Anterior</a>{% endif %}
+        {% if posts.length == perPage %}<a href="/{{section.slug}}?page={{page|add(1)}}" style="float:right">Siguiente ></a>{% endif %}
+      </ul>
     </div>
-    <!-- END PAGE CONTENT-->
-  </div>
+  </section>
 {% endblock %}
 
 {% block javascript %}
 
-$(".upvote").click(function(){
+$(".vote").click(function(){
   var linkElement = $(this);
   var postId = linkElement.data("postid");
-  if(!$(this).hasClass("voted")){
+  if(!$(this).hasClass("inactive")){
     $.post( "/post/"+postId+"/vote", function( data ) {
       if(data.success){
-        linkElement.addClass("voted");
+        $(".pts span",linkElement).html(data.votes);
+        linkElement.addClass("inactive");
       }
     });
   }else{
     $.post( "/post/"+postId+"/unvote", function( data ) {
       if(data.success){
-        linkElement.removeClass("voted");
+          $(".pts span",linkElement).html(data.votes);
+        linkElement.removeClass("inactive");
       }
     });
   }

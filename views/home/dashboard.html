@@ -3,141 +3,51 @@
 {% block title %}Portada{% endblock %}
 
 {% block content %}
-<div class="page-content">
-  <!-- BEGIN PAGE HEADER-->
-  <div class="row">
-    <div class="col-md-12">
-      <!-- BEGIN PAGE TITLE & BREADCRUMB-->
-      <h3 class="page-title">Comun.la <small>el inicio de una comunidad</small></h3>
 
-      <!-- END PAGE TITLE & BREADCRUMB-->
-    </div>
-  </div>
-  <!-- END PAGE HEADER-->
-
-  <div class="row">
-    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-      <div class="dashboard-stat blue">
-        <div class="visual">
-          <i class="fa fa-comments"></i>
-        </div>
-        <div class="details">
-          <div class="number">
-            {{totalComments}}
-          </div>
-          <div class="desc">
-            Comentarios
-          </div>
-        </div>
-        <span class="more"></span>
+  <section id="dashboard">
+      <div class="title-head">
+          <div class="left"><span class="icon"><img src="img/title.png"></span> <h1>COMUN.LA</h1><br> el inicio de una comunidad</div>
       </div>
-    </div>
-    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-      <div class="dashboard-stat green">
-        <div class="visual">
-          <i class="fa fa-smile-o"></i>
-        </div>
-        <div class="details">
-          <div class="number">
-            {{totalUsers}}
-          </div>
-          <div class="desc">
-            Usuarios
-          </div>
-        </div>
-        <span class="more"></span>
-      </div>
-    </div>
-    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-      <div class="dashboard-stat purple">
-        <div class="visual">
-          <i class="fa fa-thumbs-up"></i>
-        </div>
-        <div class="details">
-          <div class="number">
-            {{totalVotes}}
-          </div>
-          <div class="desc">
-            Votos
-          </div>
-        </div>
-        <span class="more"></span>
-      </div>
-    </div>
-    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-      <div class="dashboard-stat yellow">
-        <div class="visual">
-          <i class="fa fa-pencil-square-o"></i>
-        </div>
-        <div class="details">
-          <div class="number">
-            {{totalPosts}}
-          </div>
-          <div class="desc">
-            Post
-          </div>
-        </div>
-        <span class="more"></span>
-      </div>
-    </div>
-  </div>
-
-
-  <div class="row">
-    <div class="col-md-12">
-      <div class="note note-success">
-        <h4 class="block"><strong>Bienvenidos a Comun.la</strong></h4>
-        <p>
-          La intención de este sitio es poder <strong>ayudar a la comunidad emprendedora de toda la región, a estar en contacto, compartir contenido y así aprender más y conocer a más gente!</strong>
-        </p>
-        <p>
-          Crear algo así no es fácil, ni sucede de la noche a la mañana, y vamos a necesitar la ayuda de muchas personas!
-        </p>
-        <p>
-          El sitio está dividido en dos grandes “zonas”, una sección general de Emprendimiento, y secciones especificas para diferentes ciudades. Conforme exista más movimiento en el sitio, podremos crear más secciones generales y conforme tengamos representantes
-          de cada ciudad, vamos a ir creando esos espacios.
-        </p>
-        <p>
-          Lanzamos esta semana, y el código lo construimos en muy poco tiempo, por lo que necesitamos mucha ayuda!
-        </p>
-        <p>
-          Nos puedes ayudar:
-        </p>
-        <ul>
-          <li><strong>Agregando contenidos.</strong>
+      <div class="clearfix"></div>
+      <ul id="meta-panel">
+          <li>
+              <img src="img/panel-comments.png">
+              <div class="info"><span>{{totalComments}}</span><p>Comentarios</p></div>
           </li>
-          <li><strong>Participando en las discusiones.</strong>
+          <li>
+              <img src="img/panel-users.png">
+              <div class="info"><span>{{totalUsers}}</span><p>Usuarios</p></div>
           </li>
-          <li><strong>Invitando a más personas.</strong>
+          <li>
+              <img src="img/panel-vote.png">
+              <div class="info"><span>{{totalVotes}}</span><p>Votos</p></div>
           </li>
-          <li><strong>Probando el sitio.</strong>
+          <li>
+              <img src="img/panel-post.png">
+              <div class="info"><span>{{totalPosts}}</span><p>Post</p></div>
           </li>
-        </ul>
-        <p>
-          Por favor, envíanos cualquier duda, comentario o sugerencia a santiago1717@gmail.com o a rocio.r.aguiar@gmail.com.
-        </p>
+      </ul>
+      <div class="clearfix"></div>
+      <div id="bienvenida">
+          <h2>Bienvenidos a Comun.la</h2>
+          <p>La intención de este sitio es poder <b>ayudar a la comunidad emprendedora de toda la región, a estar en contacto, compartir contenido y así aprender más y conocer a más gente!</b></p>
+          <p>Crear algo así no es fácil, ni sucede de la noche a la mañana, y vamos a necesitar la ayuda de muchas personas!</p>
+          <p>El sitio está dividido en dos grandes “zonas”, una sección general de Emprendimiento, y secciones especificas para diferentes ciudades. Conforme exista más movimiento en el sitio, podremos crear más secciones generales y conforme tengamos representantes de cada ciudad, vamos a ir creando esos espacios.</p>
+          <p>Lanzamos esta semana, y el código lo construimos en muy poco tiempo, por lo que necesitamos mucha ayuda!</p>
+          <p>Nos puedes ayudar:</p>
+          <ul>
+              <li>Agregando contenidos.</li>
+              <li>Participando en las discusiones.</li>
+              <li>Invitando a más personas.</li>
+              <li>Probando el sitio.</li>
+          </ul>
+          <p>Por favor, envíanos cualquier duda, comentario o sugerencia a santiago1717@gmail.com o a rocio.r.aguiar@gmail.com.</p>
       </div>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-md-12">
-      <div class="note note-warning">
-        <h4 class="block">Super Alpha</h4>
-
-        <p>
-          El sitio esta en estado Super Alpha, por lo que quizá tengamos que “reiniciar” la base de datos y/o algunas cosas se rompan. Por favor reporten cualquier problema a santiago1717@gmail.com.
-        </p>
-        <p>
-          Estamos en proceso de abrir el código (pero estamos usando un template y hay un tema de licencias), pero si quieres experimentar la parte de seguridad o colaborar en el código, por favor, avísanos, no corras pruebas directamente en este servidor!
-        </p>
-        <p>
-          Muchas gracias!
-        </p>
-
+      <div id="note">
+          <h2>Super Alpha</h2>
+          <p>El sitio esta en estado Super Alpha, por lo que quizá tengamos que “reiniciar” la base de datos y/o algunas cosas se rompan. Por favor reporten cualquier problema a santiago1717@gmail.com.</p>
+          <p>Estamos en proceso de abrir el código (pero estamos usando un template y hay un tema de licencias), pero si quieres experimentar la parte de seguridad o colaborar en el código, por favor, avísanos, no corras pruebas directamente en este servidor!</p>
+          <p>Muchas gracias!</p>
       </div>
-    </div>
-  </div>
-  <!-- END PAGE CONTENT-->
-</div>
+  </section>
 {% endblock %}

@@ -3,74 +3,45 @@
 {% block title %}Portada{% endblock %}
 
 {% block content %}
-  <div class="page-content">
-		<!-- BEGIN PAGE HEADER-->
-		<div class="row">
-      <div class="col-md-1"></div>
-			<div class="col-md-10">
-				<!-- BEGIN PAGE TITLE & BREADCRUMB-->
-				<h3 class="page-title">
-          {% if post.url %}
-            <a href="{{post.url}}">{{post.title}}</a> <small>({{post.host}})</small>
-          {% else %}
-            {{post.title}}
-          {% endif %}
-				</h3>
-				<ul class="page-breadcrumb breadcrumb">
-					<li class="btn-group">
-            <ul class="list-inline" style="padding:8px 8px 0 0;">
-              <li>
-                <i class="fa fa-calendar"></i>{{post.createdDate|date('j/n/Y') }}
-              </li>
-              <li>
-                <i class="fa fa-comments"></i>{{post.comments.length}} Comentarios
-              </li>
-            </ul>
 
-					</li>
-					<li>
-            Creado por <a href="/user/{{post.user.id}}">{{post.user.nickname}}</a> en <a href="/{{post.section.slug}}">{{post.section.name}}</a>
-					</li>
-				</ul>
-				<!-- END PAGE TITLE & BREADCRUMB-->
-			</div>
-		</div>
-		<!-- END PAGE HEADER-->
-		<!-- BEGIN PAGE CONTENT-->
-		<div class="row">
-      <div class="col-md-1"></div>
-			<div class="col-md-10 news-page blog-page">
-				<div class="row">
-					<div class="col-md-12 blog-tag-data">
-            {% if post.description %}
-              <div class="news-item-page">
-                {{post.description|striptags|raw|replace('\n', '<br/>', 'g') }}
-              </div>
-            {% endif %}
-						<hr>
-						<div class="">
-							<h3>Comentarios</h3>
 
-              {% for comment in orderedComments %}
-                {% include "./_comment.html" %}
-              {% endfor %}
+  <section id="tema">
+    <div class="title-head">
+      <div class="left"><span class="icon">
+        <img src="/img/title.png"></span>
+        {% if post.url %}
+          <h1><a href="{{post.url}}">{{post.title}}</a> <small>({{post.host}})</small></h1>
+        {% else %}
+          <h1>{{post.title}}</h1>
+        {% endif %}
+      </div>
+    </div>
 
-							<hr>
-							<div class="post-comment">
-								<h3>Escribe un comentario:</h3>
-								<form role="form" method="post">
-									<div class="form-group">
-										<label class="control-label">Mensaje:
-										</label>
-										<textarea class="form-control" rows="8" name="commentContent"></textarea>
-									</div>
-									<button class="btn blue margin-top-10" type="submit">Comentar</button>
-								</form>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- END PAGE CONTENT-->
-		</div>
+    {% if post.description %}
+      <div class="news-item-page">
+        {{post.description|striptags|raw|replace('\n', '<br/>', 'g') }}
+      </div>
+    {% endif %}
+
+    <div class="clearfix"></div>
+    <ul class="meta-post">
+      <li class="author"><a href="/user/{{post.user.id}}">{{post.user.nickname}}</a></li>
+      <li class="time">{{post.createdDate|date('j/n/Y') }}</li>
+      <li class="comments"><span>{{post.comments.length}}</span> Comentarios</li>
+    </ul>
+    <h2>Comentarios</h2>
+    <ul id="comments-post">
+      {% for comment in orderedComments %}
+        {% include "./_comment.html" %}
+      {% endfor %}
+    </ul>
+    <h2>Escribe un comentario:</h2>
+    <form role="form" method="post">
+      <div id="comment-author">
+        <textarea rows="8" name="commentContent"></textarea>
+        <button id="comment" type="submit">COMENTAR</button>
+      </div>
+    </form>
+  </section>
+
 {% endblock %}

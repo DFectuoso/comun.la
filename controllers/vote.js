@@ -30,7 +30,7 @@ currentController.post('/:postId/vote', User.isLoggedIn, function (req, res) {
       req.post.save(function(err){
         if(err) return res.send(500, err);
 
-        res.send({success:true});
+        res.send({success:true, votes: req.post.votes.length});
       });
     });
   });
@@ -52,7 +52,7 @@ currentController.post('/:postId/unvote', User.isLoggedIn, function (req, res) {
     req.post.calculateKarma();
 		req.post.save(function(err){
 			if(err) return res.send(500, err);
-			res.send({success:true});
+			res.send({success:true, votes: req.post.votes.length});
 		});
 	});
 });

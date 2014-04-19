@@ -1,50 +1,19 @@
 {% extends '../layouts/layout.html' %}
 
 {% block content %}
-  <div class="page-content">
-    <!-- BEGIN EXAMPLE TABLE PORTLET-->
-    <div class="portlet box light-grey">
-      <div class="portlet-title">
-        <div class="caption">
-          <i class="fa fa-globe"></i>
-          Inbox
-        </div>
-      </div>
-      <div class="portlet-body">
-        <table class="table table-striped table-bordered table-hover" id="sample_1">
-        <thead>
-        <tr>
-          <th>
-            User
-          </th>
-          <th>
-            Message
-          </th>
-          <th>
-            Date
-          </th>
-        </tr>
-        </thead>
-        <tbody>
-          {% for notification in notifications %}
-            <tr class="odd gradeX{% if not notification.read %} unread{% endif %}">
-              <td>
-                <a href="/user/{{notification.fromUser.id}}">{{notification.fromUserNickname}}</a>
-              </td>
-              <td>
-                <a href="/notification/{{notification.id}}">{{notification.text}}</a>
-              </td>
-              <td>
-                {{notification.createdDate|date('j/m/Y h:i a')}}
-              </td>
-            </tr>
-          {% endfor %}
-        </tbody>
-        </table>
-      </div>
+  <section id="messages">
+    <div class="title-head">
+      <div class="left"><span class="icon"><img src="/img/title.png"></span> <h1>MENSAJES</h1></div>
     </div>
-    <!-- END EXAMPLE TABLE PORTLET-->
-  </div>
-
-
+    <div class="clearfix"></div>
+    <ul>
+      {% for notification in notifications %}
+        <li class="{% if not notification.read %}unread{% endif %}">
+          <div class="author"><a href="/user/{{notification.fromUser.id}}">{{notification.fromUserNickname}}</a></div>
+          <div class="time">{{notification.createdDate|date('j/m/Y h:i a')}}</div>
+          <div class="comments"><a href="/notification/{{notification.id}}">{{notification.text}}</a></div>
+        </li>
+      {% endfor %}
+    </ul>
+  </section>
 {% endblock %}

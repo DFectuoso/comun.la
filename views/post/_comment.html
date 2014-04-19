@@ -1,19 +1,17 @@
-<div class="media">
-  <div class="media-body">
-    <h4 class="media-heading">
-      <i class="fa fa-user" style="font-size:1.1em"></i>
-      <a href="/user/{{comment.userId}}">{{comment.userNickname}}</a> escribió el {{comment.createdDate|date('j/n/Y h:i a') }}
-      <small>/ <a href="/comment/{{comment.id}}">Responder</a></small>
-    </h4>
-    <p>
-      {{comment.content|striptags|raw|replace('\n', '<br/>', 'g')}}
-    </p>
+<li>
+  <ul class="meta">
+    <li class="author"><a href="/user/{{comment.userId}}">{{comment.userNickname}}</a></li>
+    <li class="time">{{comment.createdDate|date('j/n/Y h:i a') }}</li>
+  </ul>
+  <div class="content">
+    {{comment.content|striptags|raw|replace('\n', '<br/>', 'g')}}
   </div>
-
-  <hr>
-  {% for comment in comment.childComments %}
-    {% include "./_comment.html"  %}
-
-  {% endfor %}
-
-</div>
+  <ul class="meta" style="border-bottom:none;">
+    <li class="reply"><a href="/comment/{{comment.id}}">Responder</a></li>
+  </ul>
+  <ul class="reply-user">
+    {% for comment in comment.childComments %}
+      {% include "./_comment.html"  %}
+    {% endfor %}
+  </ul>
+</li>

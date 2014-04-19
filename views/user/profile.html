@@ -3,84 +3,30 @@
 {% block title %}Portada{% endblock %}
 
 {% block content %}
-  <div class="page-content">
-    <!-- BEGIN PAGE HEADER-->
-    <div class="row">
-      <div class="col-md-12">
-        <!-- BEGIN PAGE TITLE & BREADCRUMB-->
-        <h3 class="page-title">{{requestUser.nickname}}</h3>
 
-        <!-- END PAGE TITLE & BREADCRUMB-->
-      </div>
+  <section id="dashboard">
+    <div class="title-head">
+      <div class="left"><span class="icon"><img src="/img/title.png"></span> <h1>{{requestUser.nickname}}</h1><br></div>
     </div>
-    <!-- END PAGE HEADER-->
+    <div class="clearfix"></div>
+    <ul id="meta-panel">
+      <li>
+        <img src="/img/panel-comments.png">
+        <div class="info"><span>{{totalComments}}</span><p>Comentarios</p></div>
+      </li>
+      <li>
+        <img src="/img/panel-users.png">
+        <div class="info"><span>{{totalUsers}}</span><p>Usuarios</p></div>
+      </li>
+      <li>
+        <img src="/img/panel-vote.png">
+        <div class="info"><span>{{totalVotes}}</span><p>Votos</p></div>
+      </li>
+      <li>
+        <img src="/img/panel-post.png">
+        <div class="info"><span>{{totalPosts}}</span><p>Post</p></div>
+      </li>
+    </ul>
+  </section>
 
-    <div class="row">
-        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-          <div class="dashboard-stat blue">
-            <div class="visual">
-              <i class="fa fa-comments"></i>
-            </div>
-            <div class="details">
-              <div class="number">
-                 {{totalComments}}
-              </div>
-              <div class="desc">
-                 Comentarios
-              </div>
-            </div>
-            <span class="more"></span>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-          <div class="dashboard-stat green">
-            <div class="visual">
-              <i class="fa fa-smile-o"></i>
-            </div>
-            <div class="details">
-              <div class="number">
-                {{totalUsers}}
-              </div>
-              <div class="desc">
-                Usuarios
-              </div>
-            </div>
-            <span class="more"></span>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-          <div class="dashboard-stat purple">
-            <div class="visual">
-              <i class="fa fa-thumbs-up"></i>
-            </div>
-            <div class="details">
-              <div class="number">
-                {{totalVotes}}
-              </div>
-              <div class="desc">
-                Votos
-              </div>
-            </div>
-            <span class="more"></span>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-          <div class="dashboard-stat yellow">
-            <div class="visual">
-              <i class="fa fa-pencil-square-o"></i>
-            </div>
-            <div class="details">
-              <div class="number">
-                {{totalPosts}}
-              </div>
-              <div class="desc">
-                Post
-              </div>
-            </div>
-            <span class="more"></span>
-          </div>
-        </div>
-      </div>
-    <!-- END PAGE CONTENT-->
-  </div>
 {% endblock %}
