@@ -33,7 +33,24 @@ Todo:
 
 
 /\/\/\/\/\/\/\/\/\/\/\
-- [LATER] Cuando creas un post, votas por el automaticamente
+List of things to do soon:
+
+- Add a way to get a notification as soon as someone answers your post/comment!
+- Add a way to order the sections by time(instead of karma), this is the "new" view
+
+- Add a way to edit your own post(title) or delete your own post
+- Admins can edit/delete post
+- Add a way to edit your comments
+- Add a way to delete your comments
+- Add a way for admins to edit/delete comments
+- Add a way to generate moderators for sections
+= Show the moderators with pride!
+
+- Add transactional emails for notifications.
+- Add a way for admins to list active users.
+- Add a way for admins to email active users.
+
+
 /\/\/\/\/\/\/\/\/\/\/\
 
 instalar mongo, redis, node, npm y git

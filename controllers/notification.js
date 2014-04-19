@@ -10,11 +10,11 @@ var Notification = require('../models/notification');
 var _ = require('underscore');
 
 var currentController = controller({
-  path : 'notification/',
+  path : 'notification',
   child : true
 });
 
-currentController.get('inbox', User.isLoggedIn, function (req, res) {
+currentController.get('/inbox', User.isLoggedIn, function (req, res) {
   Notification.find({toUser:req.user}).sort("-createdDate").exec(function(err,notifications){
     if(err)
       return res.send(500, err);
@@ -24,7 +24,7 @@ currentController.get('inbox', User.isLoggedIn, function (req, res) {
   })
 });
 
-currentController.get(':notificationId', User.isLoggedIn, function (req, res) {
+currentController.get('/:notificationId', User.isLoggedIn, function (req, res) {
   req.notification.read = true;
   req.notification.save(function(err){
     if(err)
